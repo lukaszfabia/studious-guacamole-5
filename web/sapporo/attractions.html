@@ -1,0 +1,93 @@
+<!-- Podstawy programowania w języku HTML5 – cz. 1
+Proszę stworzyć projekt witryny www, która będzie rozwijana podczas realizacji kolejnych ćwiczeń dotyczącej prezentacji wybranego miasta.
+ W jej skład powinno wchodzić co najmniej 3-4 strony. Kodowanie każdej z nich proszę ustawić jako utf-8. Każda strona powinna być zgodna ze standardem HTML 5 i posiadać własny, unikatowy tytuł. Ponadto powinna być opatrzona meta danymi w szczególności opisem oraz słowami kluczowymi (na potrzeby pozycjonowania).
+W całej witrynie powinny znaleźć się:
+1
+2. Grafika:
+    •  umieszczanie na stronie w naturalnych rozmiarach i zmodyfikowanych tego samego rysunku
+    •  każda grafika powinna posiadać tekst alternatywny (alt)
+
+4. Tabele:
+    •  wiersze nagłówkowe
+    •  różne formatowane (elementów tabeli)
+    •  Zagnieżdżanie (tabela w tabeli)
+    •  łączenie kolumn i wierszy.
+5. Odnośniki (linki):
+    •  do innej strony
+    •  do etykiety
+    •  umożliwiające pobranie pliku (przez http), pliki powinny znajdować się w różnych lokalizacjach
+    •  do wysłania poczty
+    •  uaktywniane kliknięciem na obrazek.
+6. Formularz:
+    • Kilka pól tekstowych (input type=”text”)
+    • Rozwijaną listę z podlistą
+    • Grupę elementów jednokrotnego wyboru (radio)
+    • Grupę elementów wielokrotnego wyboru (checkbox)
+    • Pole tekstowe na wpisanie maksymalnie 200 znaków (text area) 
+    • Przyciski do czyszczenia i wysłania formularza (action = …).
+Proszę zwrócić uwagę na wykorzystywany standard html (HTML5). Każda strona powinna przechodzić pozytywnie analizę walidatora dostępnego na stronie
+http://validator.w3.org/ -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="en">
+    <meta name="description"
+        content="iscover Sapporo, the capital of Hokkaido, Japan. A complete guide to top attractions, cuisine, history, and festivals. Explore the best places to visit!">
+
+    <!-- check  -->
+    <meta name="keywords"
+        content="Sapporo, 札幌市, Sapporo-shi, Japan, city guide, Hokkaido, attractions, tourism, food, festivals, Sapporo Snow Festival">
+    <title>Sapporo - 札幌市</title>
+
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <h1>
+                    <a href="index.html" class="link">Sapporo</a>
+                </h1>
+            </div>
+            <ul class="nav-items">
+                <li class="nav-item"><a href="festivals.html" class="link">Festivals</a></li>
+                <li class="nav-item"><a href="attractions.html" class="link">Attractions</a></li>
+                <li class="nav-item"><a href="login.html" class="link">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section>
+            <h1>Things to Do in Sapporo</h1>
+            <ol>
+                <li>
+                    Mt. Okura Observatory
+                    <ul>
+                        <li>The Okurayama Ski Jump Stadium was constructed in 1931</li>
+
+                        <li>
+                            It is one of only a few 90-meter class jumps in the world
+                        </li>
+
+                        <li>An event site for the 1972 Winter Olympics, it is still used for competitions today</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+    </main>
+
+    <footer>
+        <div>
+            <p>&copy; Sapporo 2024 <a href="https://lukaszfabia.vercel.app" target="_blank">Lukasz Fabia</a></p>
+        </div>
+    </footer>
+</body>
+
+</html>
