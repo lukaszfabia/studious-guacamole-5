@@ -1,47 +1,9 @@
-<!-- Podstawy programowania w języku HTML5 – cz. 1
-Proszę stworzyć projekt witryny www, która będzie rozwijana podczas realizacji kolejnych ćwiczeń dotyczącej prezentacji wybranego miasta.
- W jej skład powinno wchodzić co najmniej 3-4 strony. Kodowanie każdej z nich proszę ustawić jako utf-8. Każda strona powinna być zgodna ze standardem HTML 5 i posiadać własny, unikatowy tytuł. Ponadto powinna być opatrzona meta danymi w szczególności opisem oraz słowami kluczowymi (na potrzeby pozycjonowania).
-W całej witrynie powinny znaleźć się:
-1. Tekst:
-    •  nagłówki
-    •  akapity
-    •  wytłuszczenie
-    •  znaki specjalne
-2. Grafika:
-    •  umieszczanie na stronie w naturalnych rozmiarach i zmodyfikowanych tego samego rysunku
-    •  każda grafika powinna posiadać tekst alternatywny (alt)
-3. Listy (wypunktowania):
-    •  numerowane i nienumerowane
-    •  zagnieżdżanie list
-4. Tabele:
-    •  wiersze nagłówkowe
-    •  różne formatowane (elementów tabeli)
-    •  Zagnieżdżanie (tabela w tabeli)
-    •  łączenie kolumn i wierszy.
-5. Odnośniki (linki):
-    •  do innej strony
-    •  do etykiety
-    •  umożliwiające pobranie pliku (przez http), pliki powinny znajdować się w różnych lokalizacjach
-    •  do wysłania poczty
-    •  uaktywniane kliknięciem na obrazek.
-6. Formularz:
-    • Kilka pól tekstowych (input type=”text”)
-    • Rozwijaną listę z podlistą
-    • Grupę elementów jednokrotnego wyboru (radio)
-    • Grupę elementów wielokrotnego wyboru (checkbox)
-    • Pole tekstowe na wpisanie maksymalnie 200 znaków (text area) 
-    • Przyciski do czyszczenia i wysłania formularza (action = …).
-Proszę zwrócić uwagę na wykorzystywany standard html (HTML5). Każda strona powinna przechodzić pozytywnie analizę walidatora dostępnego na stronie
-http://validator.w3.org/ -->
-
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Type" content="en">
     <meta name="description"
         content="iscover Sapporo, the capital of Hokkaido, Japan. A complete guide to top attractions, cuisine, history, and festivals. Explore the best places to visit!">
 
@@ -70,21 +32,23 @@ http://validator.w3.org/ -->
     </header>
 
     <main class="container">
-        <h1>Festivals</h1>
         <div>
-            <i>Contact with <a href="mailto:ufabia03@gmail.com">dev</a></i>
-            <small>or</small>
-            <b><a href="festivals.html" download>Edit yourself</a></b>
+            <p>
+                <i>Contact with <a href="mailto:ufabia03@gmail.com">dev</a></i>
+                <small>or</small>
+                <strong><a href="festivals.html" download>Edit</a></strong>
+            </p>
         </div>
 
-        <section style="display: flex; align-items: center; justify-content: center;">
+        <div style="display: flex; align-items: center; justify-content: center;">
             <a href="https://i0.wp.com/www.bapl.org/wp-content/uploads/2019/02/old-under-construction-gif.gif?ssl=1"
                 download>
                 <img src="https://i0.wp.com/www.bapl.org/wp-content/uploads/2019/02/old-under-construction-gif.gif?ssl=1"
-                    alt="under-contruction">
+                    alt="Under construction sign">
             </a>
-        </section>
+        </div>
     </main>
+
 
     <footer>
         <div>
