@@ -24,15 +24,46 @@
                 </h1>
             </div>
             <ul class="nav-items">
+                <li class="nav-item">
+                    <label for="search-bar"></label>
+                    <input type="search" name="search-bar" id="search-bar" placeholder="Search on this site...">
+                </li>
                 <li class="nav-item"><a href="festivals.html" class="link">Festivals</a></li>
-                <li class="nav-item"><a href="attractions.html" class="link">Attractions</a></li>
+                <li class="nav-item"><a href="others.html" class="link">Other informations</a></li>
                 <li class="nav-item"><a href="login.html" class="link">Login</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="container">
-        <section>
+        <aside>
+            Table of contents
+            <ul>
+                <li><a href="#job-offers">Job offers</a></li>
+                <li><a href="#attractions">Attractions</a></li>
+            </ul>
+        </aside>
+
+        <section id="job-offers">
+            <h1>Job Offers</h1>
+            <div>
+                <h4><mark>Our company is recruting</mark></h4>
+                <p>We are looking for <strong>Frontend Developers</strong></p>
+                <details>
+                    <ul>
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>JavaScript</li>
+                    </ul>
+                    <summary>What you need to work with us!</summary>
+                </details>
+                <p>Current taken positions:</p>
+                <meter value="8" max="10" aria-label="8 out of 10 positions are already taken">8 out of 10</meter>
+            </div>
+        </section>
+
+
+        <section id="attractions">
             <h1>Things to Do in Sapporo</h1>
             <ol>
                 <li>
