@@ -5,14 +5,41 @@
 body {
     margin: 0;
     box-sizing: border-box;
+    background-image: url("../public/background-mountains.jpeg");
+    background-size: contain;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    min-height: 100vh;
 }
 
-.container {
+p {
+    font-size: 13pt;
+    margin: 5pt;
+}
+
+div p { /* selektor zagnieżdżenia - wszystkie paragrafy w divach*/
+    font-size: 12pt; /* font w pt */
+}
+
+
+li {
+    font-size: 90%;
+}
+
+.container { /* selektor klasy */
     padding-right: 4rem;
     padding-left: 4rem;
 }
 
 header {
+    position: sticky;
+    top: 0;
+
+    background: rgba(255, 255, 255, 1);
+    z-index: 1000;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+
     display: flex;
     width: 100%;
     height: auto;
@@ -35,7 +62,7 @@ nav {
 
 .nav-item {
     list-style: none;
-    font-size: 1.2rem;
+    font-size: 1.2rem; /* font w em do roota */
     padding: 0.5rem;
 }
 
@@ -52,7 +79,7 @@ nav {
     display: flex;
     align-items: center;
     justify-items: center;
-    font-size: 1.5rem;
+    font-size: 24px; /* font w px*/
     width: 100%;
 }
 
@@ -62,6 +89,15 @@ nav {
     align-items: center;
 }
 
+.text-secondary {
+    color: #3e3a3a;
+}
+
+#img-sapporo {
+    position: relative;
+    left: 300px;
+}
+ 
 article {
     display: flex;
 }
@@ -69,21 +105,93 @@ article {
 footer {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     width: 100%;
     height: 100px;
-    background-color: #f1f1f1;
+}
+
+footer > div > p { /* selektor bezpośredniego dziecka */
+    font-style: italic;
+}
+
+#districts-header {
+    margin: 0 auto;
+}
+
+#districts {
+    padding: 115px;
 }
 
 table,
 td,
 tr,
 th {
-    border: 0.5px, solid black;
+    border: 0.5px solid black;
+    border-collapse: collapse;
 }
 
 table {
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
+}
+
+#main-table { /* selektor identyfikatora */
+    background-color: rgba(255, 255, 255, 0.8); 
+
+    font-variant: small-caps;
+    font-weight: bolder;
+}
+
+.inside-table {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.inside-table tbody tr,
+.inside-table tbody th {
+    transition: background-color 0.3s;
+}
+
+.inside-table tbody tr:hover,
+.inside-table tbody th:hover {
+    background-color: #f1f1f1;
+}
+
+.inside-table tbody tr:nth-of-type(1),
+.inside-table tbody tr:nth-of-type(1) {
+    background-color: rgba(245, 245, 245, 0.8);
+}
+
+.inside-table th,
+.inside-table td,
+.inside-table tr {
+    border-width: thin;
+    border-style: dashed;
+    border-color: gray;
+}
+
+.inside-table tbody tr:first-child th {
+    border-top: thick solid black;
+}
+
+.inside-table tbody tr th:first-child {
+    border-left: thick solid black;
+}
+
+.inside-table tbody tr th:last-child {
+    border-right: thick solid black;
+}
+
+.inside-table tbody tr td:first-child {
+    border-left: thick solid black;
+}
+
+.inside-table tbody tr td:last-child {
+    border-right: thick solid black;
+}
+
+.inside-table tbody tr:last-child td {
+    border-bottom: thick solid black;
 }
 
 td {
@@ -91,10 +199,57 @@ td {
 }
 
 tr {
-    background-color: #f1f1f1;
     text-align: center;
 }
 
-.text-secondary {
-    color: #3e3a3a;
+thead {
+    font-size: larger;
+    line-height: 40pt;
+}
+
+
+#arrow {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    background-image: url("../public/arrow.jpeg");
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    display: block;
+    z-index: 1000;
+}
+
+#arrow:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 800px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .nav-items {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    #arrow {
+        bottom: 10px;
+        left: 10px;
+        width: 40px;
+        height: 40px;
+    }
 }
