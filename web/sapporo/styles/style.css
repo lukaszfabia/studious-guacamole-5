@@ -102,6 +102,11 @@ article {
     display: flex;
 }
 
+button:active {
+    background-color: #ffffff;
+    transform: scale(0.98);
+}
+
 footer {
     display: flex;
     justify-content: center;
@@ -157,8 +162,8 @@ table {
     background-color: #f1f1f1;
 }
 
-.inside-table tbody tr:nth-of-type(1),
-.inside-table tbody tr:nth-of-type(1) {
+.inside-table tbody tr:nth-child(1),
+.inside-table tbody tr:first-of-type {
     background-color: rgba(245, 245, 245, 0.8);
 }
 

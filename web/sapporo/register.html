@@ -13,6 +13,50 @@
     <title>Sapporo - 札幌市</title>
 
     <link rel="stylesheet" href="styles/style.css">
+
+    <style>
+        .checkbox-container input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .checkbox-container input[type="checkbox"]:checked + label{
+            color: green;
+        }
+
+        .checkbox-container label {
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .radio-container input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .radio-container input[type="radio"]:checked + label {
+            color: green;
+        }
+        
+        .radio-container label {
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input:disabled {
+            opacity: 0.8;
+            background-color: white;
+            cursor: not-allowed;
+        }
+
+        input:enabled {
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -55,17 +99,17 @@
                     <span>e.g Doe</span>
                 </div>
 
-                <div>
+                <div class="radio-container">
                     <input type="radio" id="female" name="sex" value="female" checked>
                     <label for="female">Female</label>
                 </div>
 
-                <div>
+                <div class="radio-container">
                     <input type="radio" id="male" name="sex" value="male">
                     <label for="male">Male</label>
                 </div>
 
-                <div>
+                <div class="radio-container">
                     <input type="radio" id="other" name="sex" value="other">
                     <label for="other">Other</label>
                 </div>
@@ -130,27 +174,27 @@
 
                 <p>Which <b>Japanese</b> cities have you visited?</p>
 
-                <div>
+                <div class="checkbox-container">
                     <input type="checkbox" id="tokyo" name="city" value="tokyo">
                     <label for="tokyo">Tokyo</label>
                 </div>
 
-                <div>
+                <div class="checkbox-container">
                     <input type="checkbox" id="kyoto" name="city" value="kyoto">
                     <label for="kyoto">Kyoto</label>
                 </div>
 
-                <div>
+                <div class="checkbox-container">
                     <input type="checkbox" id="osaka" name="city" value="osaka">
                     <label for="osaka">Osaka</label>
                 </div>
 
-                <div>
+                <div class="checkbox-container">
                     <input type="checkbox" id="sapporo" name="city" value="sapporo">
                     <label for="sapporo">Sapporo</label>
                 </div>
 
-                <div>
+                <div class="checkbox-container">
                     <input type="checkbox" id="hiroshima" name="city" value="hiroshima">
                     <label for="hiroshima">Hiroshima</label>
                 </div>
@@ -171,7 +215,7 @@
                 </div>
                 <div>
                     <label for="other-links">External links</label>
-                    <input type="url" name="other-links" id="other-links" placeholder="https://wp.pl">
+                    <input type="url" name="other-links" id="other-links" placeholder="https://wp.pl" disabled>
                 </div>
 
             </fieldset>
