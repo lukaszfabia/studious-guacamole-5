@@ -37,14 +37,15 @@
     </header>
 
     <section class="container">
-        <form action="/login.php" method="post" autocomplete="on">
-            <h1>Log in</h1>
-            <div>
+        <form action="/login.php" method="post" autocomplete="on" style="display: flex; flex-direction: column; 
+        gap: 10px; justify-content: center; align-items: center;">
+            <h1 style="text-align: center;">Log in</h1>
+            <div style="text-align: center;">
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" required placeholder="Your email...">
             </div>
 
-            <div>
+            <div style="text-align: center;">
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password" required placeholder="Your password...">
             </div>
@@ -59,12 +60,14 @@
                 <input type="file" name="" id="" placeholder="to jest test">
             </div> -->
 
-            <div>
+            <div style="text-align: center;">
                 <small>Don't have account? <a href="register.html">Sign up!</a></small>
             </div>
 
-            <button type="button">Log in</button>
-            <button type="reset">Clear</button>
+            <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+                <button type="button">Log in</button>
+                <button type="reset">Clear</button>
+            </div>
         </form>
 
     </section>

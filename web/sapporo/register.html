@@ -56,6 +56,14 @@
         input:enabled {
             cursor: pointer;
         }
+
+        input:focus {
+            background-color: rgba(200, 200, 200, 0.8);
+        }
+
+        input:required {
+            box-shadow: 0 0 5px red;
+        }
     </style>
 </head>
 
@@ -221,8 +229,8 @@
 
             </fieldset>
 
-            <button type="submit">Sign up</button>
-            <button type="reset">Clear</button>
+            <button type="submit"><p>Sign up</p></button>
+            <button type="reset"><p>Clear</p></button>
         </form>
     </section>
 
