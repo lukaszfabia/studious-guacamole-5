@@ -33,54 +33,69 @@
                 <li class="nav-item"><a href="others.html" class="link">Other informations</a></li>
                 <li class="nav-item"><a href="login.html" class="link">Login</a></li>
                 <li class="nav-item" id="settings">
-                    <img src="../sapporo/public/settings.jpeg" alt="settings_icon" id="settings_icon">
+                    <input type='checkbox' id="settings_radio" name="menu_group">
+                    <label for="settings_radio" id="settings_label">
+                        <img src="../sapporo/public/settings.jpeg" alt="settings_icon" id="settings_icon">
+                    </label>
 
                     <nav class="menu">
-                        <ul>
-                            <li><a href="#">Kategoria 1</a>
-                                <ul>
-                                    <li><a href="#">Podkategoria 1.1</a>
-                                        <ul>
-                                            <li><a href="#">Podpodkategoria 1.1.1</a></li>
-                                            <li><a href="#">Podpodkategoria 1.1.2</a></li>
+                        <ul class="category_list">
+                            <li class="category"><a href="#">Kategoria 1</a>
+                                <ul class="subcategory_list">
+                                    <li class="subcategory">
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check1" name="menu_group">
+                                        <label for="subcategory_check1" class="subcategory_label">Podkategoria 1.1</label>
+                                        <ul class="subsubcategory_list">
+                                            <li class="subsubcategory"><a href="#">Podpodkategoria 1.1.1</a></li>
+                                            <li class="subsubcategory"><a href="#">Podpodkategoria 1.1.2</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Podkategoria 1.2</a>
-                                        <ul>
-                                            <li><a href="#">Podpodkategoria 1.2.1</a></li>
-                                            <li><a href="#">Podpodkategoria 1.2.2</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Kategoria 2</a>
-                                <ul>
-                                    <li><a href="#">Podkategoria 2.1</a>
-                                        <ul>
-                                            <li><a href="#">Podpodkategoria 2.1.1</a></li>
-                                            <li><a href="#">Podpodkategoria 2.1.2</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Podkategoria 2.2</a>
-                                        <ul>
-                                            <li><a href="#">Podpodkategoria 2.2.1</a></li>
-                                            <li><a href="#">Podpodkategoria 2.2.2</a></li>
+                                    <li class="subcategory">
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check2" name="menu_group">
+                                        <label for="subcategory_check2" class="subcategory_label">Podkategoria 1.2</label>
+                                        <ul class="subsubcategory_list">
+                                            <li class="subsubcategory"><a href="#">Podpodkategoria 1.2.1</a></li>
+                                            <li class="subsubcategory"><a href="#">Podpodkategoria 1.2.2</a></li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href="#">Kategoria 3</a>
-                                <ul>
-                                    <li><a href="#">Podkategoria 3.1</a>
-                                        <ul>
-                                            <li><a href="#">Podpodkategoria 3.1.1</a></li>
-                                            <li><a href="#">Podpodkategoria 3.1.2</a></li>
+                            <li class="category"><a href="#">Kategoria 2</a>
+                                <ul class="subcategory_list">
+                                    <li class="subcategory">
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check3" name="menu_group">
+                                        <label for="subcategory_check3" class="subcategory_label">Podkategoria 1.1</label>
+                                        <ul class="subsubcategory_list">
+                                            <li class="subsubcategory"><a href="#">Podpodkategoria 1.1.1</a></li>
+                                            <li class="subsubcategory"><a href="#">Podpodkategoria 1.1.2</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Podkategoria 3.2</a>
-                                        <ul>
-                                            <li><a href="#">Podpodkategoria 3.2.1</a></li>
-                                            <li><a href="#">Podpodkategoria 3.2.2</a></li>
+                                    <li class="subcategory">
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check4" name="menu_group">
+                                        <label for="subcategory_check4" class="subcategory_label">Podkategoria 1.2</label>
+                                        <ul class="subsubcategory_list">
+                                            <li class="subsubcategory"><a href="#">Podpodkategoria 1.2.1</a></li>
+                                            <li class="subsubcategory"><a href="#">Podpodkategoria 1.2.2</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="category"><a href="#">Kategoria 3</a>
+                                <ul class="subcategory_list">
+                                    <li class="subcategory">
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check5" name="menu_group">
+                                        <label for="subcategory_check5" class="subcategory_label">Podkategoria 1.1</label>
+                                        <ul class="subsubcategory_list">
+                                            <li class="subsubcategory"><a href="#">Podpodkategoria 1.1.1</a></li>
+                                            <li class="subsubcategory"><a href="#">Podpodkategoria 1.1.2</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="subcategory">
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check6" name="menu_group">
+                                        <label for="subcategory_check6" class="subcategory_label">Podkategoria 1.2</label>
+                                        <ul class="subsubcategory_list">
+                                            <li class="subsubcategory"><a href="#">Podpodkategoria 1.2.1</a></li>
+                                            <li class="subsubcategory"><a href="#">Podpodkategoria 1.2.2</a></li>
                                         </ul>
                                     </li>
                                 </ul>
