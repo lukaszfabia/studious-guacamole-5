@@ -13,9 +13,62 @@
     <title>Sapporo - 札幌市</title>
 
     <link rel="stylesheet" href="styles/style.css">
+
+    <style>
+        .checkbox-container input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .checkbox-container input[type="checkbox"]:checked + label{
+            color: green;
+        }
+
+        .checkbox-container label {
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .radio-container input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .radio-container input[type="radio"]:checked + label {
+            color: green;
+        }
+        
+        .radio-container label {
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input:disabled {
+            opacity: 0.8;
+            background-color: white;
+            cursor: not-allowed;
+        }
+
+        input:enabled {
+            cursor: pointer;
+        }
+
+        input:focus {
+            background-color: rgba(200, 200, 200, 0.8);
+        }
+
+        input:required {
+            box-shadow: 0 0 5px red;
+        }
+    </style>
 </head>
 
 <body>
+    <div id="background-image"></div>
     <header>
         <nav class="container">
             <div class="logo">
@@ -31,6 +84,77 @@
                 <li class="nav-item"><a href="festivals.html" class="link">Festivals</a></li>
                 <li class="nav-item"><a href="others.html" class="link">Other informations</a></li>
                 <li class="nav-item"><a href="login.html" class="link">Login</a></li>
+                <li class="nav-item" id="settings">
+                    <input type='checkbox' id="settings_radio" name="menu_group">
+                    <label for="settings_radio" id="settings_label">
+                        <img src="../sapporo/public/settings.jpeg" alt="settings_icon" id="settings_icon">
+                    </label>
+
+                    <nav class="menu">
+                        <ul class="category_list">
+                            <li class="category">Kategoria 1
+                                <ul class="subcategory_list">
+                                    <li class="subcategory">
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check1" name="menu_group">
+                                        <label for="subcategory_check1" class="subcategory_label">Podkategoria 1.1</label>
+                                        <ul class="subsubcategory_list">
+                                            <li class="subsubcategory">Podpodkategoria 1.1.1</li>
+                                            <li class="subsubcategory">Podpodkategoria 1.1.2</li>
+                                        </ul>
+                                    </li>
+                                    <li class="subcategory">
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check2" name="menu_group">
+                                        <label for="subcategory_check2" class="subcategory_label">Podkategoria 1.2</label>
+                                        <ul class="subsubcategory_list">
+                                            <li class="subsubcategory">Podpodkategoria 1.2.1</li>
+                                            <li class="subsubcategory">Podpodkategoria 1.2.2</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="category">Kategoria 2
+                                <ul class="subcategory_list">
+                                    <li class="subcategory">
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check3" name="menu_group">
+                                        <label for="subcategory_check3" class="subcategory_label">Podkategoria 2.1</label>
+                                        <ul class="subsubcategory_list">
+                                            <li class="subsubcategory">Podpodkategoria 2.1.1</li>
+                                            <li class="subsubcategory">Podpodkategoria 2.1.2</li>
+                                        </ul>
+                                    </li>
+                                    <li class="subcategory">
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check4" name="menu_group">
+                                        <label for="subcategory_check4" class="subcategory_label">Podkategoria 2.2</label>
+                                        <ul class="subsubcategory_list">
+                                            <li class="subsubcategory">Podpodkategoria 2.2.1</li>
+                                            <li class="subsubcategory">Podpodkategoria 2.2.2</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="category">Kategoria 3
+                                <ul class="subcategory_list">
+                                    <li class="subcategory">
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check5" name="menu_group">
+                                        <label for="subcategory_check5" class="subcategory_label">Podkategoria 3.1</label>
+                                        <ul class="subsubcategory_list">
+                                            <li class="subsubcategory">Podpodkategoria 3.1.1</li>
+                                            <li class="subsubcategory">Podpodkategoria 3.1.2</li>
+                                        </ul>
+                                    </li>
+                                    <li class="subcategory">
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check6" name="menu_group">
+                                        <label for="subcategory_check6" class="subcategory_label">Podkategoria 3.2</label>
+                                        <ul class="subsubcategory_list">
+                                            <li class="subsubcategory">Podpodkategoria 3.2.1</li>
+                                            <li class="subsubcategory">Podpodkategoria 3.2.2</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </li>
             </ul>
         </nav>
     </header>
@@ -55,17 +179,17 @@
                     <span>e.g Doe</span>
                 </div>
 
-                <div>
+                <div class="radio-container">
                     <input type="radio" id="female" name="sex" value="female" checked>
                     <label for="female">Female</label>
                 </div>
 
-                <div>
+                <div class="radio-container">
                     <input type="radio" id="male" name="sex" value="male">
                     <label for="male">Male</label>
                 </div>
 
-                <div>
+                <div class="radio-container">
                     <input type="radio" id="other" name="sex" value="other">
                     <label for="other">Other</label>
                 </div>
@@ -130,27 +254,27 @@
 
                 <p>Which <b>Japanese</b> cities have you visited?</p>
 
-                <div>
+                <div class="checkbox-container">
                     <input type="checkbox" id="tokyo" name="city" value="tokyo">
                     <label for="tokyo">Tokyo</label>
                 </div>
 
-                <div>
+                <div class="checkbox-container">
                     <input type="checkbox" id="kyoto" name="city" value="kyoto">
                     <label for="kyoto">Kyoto</label>
                 </div>
 
-                <div>
+                <div class="checkbox-container">
                     <input type="checkbox" id="osaka" name="city" value="osaka">
                     <label for="osaka">Osaka</label>
                 </div>
 
-                <div>
+                <div class="checkbox-container">
                     <input type="checkbox" id="sapporo" name="city" value="sapporo">
                     <label for="sapporo">Sapporo</label>
                 </div>
 
-                <div>
+                <div class="checkbox-container">
                     <input type="checkbox" id="hiroshima" name="city" value="hiroshima">
                     <label for="hiroshima">Hiroshima</label>
                 </div>
@@ -171,19 +295,22 @@
                 </div>
                 <div>
                     <label for="other-links">External links</label>
-                    <input type="url" name="other-links" id="other-links" placeholder="https://wp.pl">
+                    <input type="url" name="other-links" id="other-links" placeholder="https://wp.pl" disabled>
                 </div>
 
             </fieldset>
 
-            <button type="submit">Sign up</button>
-            <button type="reset">Clear</button>
+            <button type="submit"><p>Sign up</p></button>
+            <button type="reset"><p>Clear</p></button>
         </form>
     </section>
 
     <footer>
         <div>
             <p>&copy; Sapporo 2024 <a href="https://lukaszfabia.vercel.app" target="_blank">Lukasz Fabia</a></p>
+            <div>
+                <p>i ja, Igor P.</p>
+            </div>
         </div>
     </footer>
 </body>

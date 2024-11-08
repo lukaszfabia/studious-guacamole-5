@@ -16,6 +16,7 @@
 </head>
 
 <body>
+    <div id="background-image"></div>
     <header>
         <nav class="container">
             <div class="logo">
@@ -31,19 +32,91 @@
                 <li class="nav-item"><a href="festivals.html" class="link">Festivals</a></li>
                 <li class="nav-item"><a href="others.html" class="link">Other informations</a></li>
                 <li class="nav-item"><a href="login.html" class="link">Login</a></li>
+                <li class="nav-item" id="settings">
+                    <input type='checkbox' id="settings_radio" name="menu_group">
+                    <label for="settings_radio" id="settings_label">
+                        <img src="../sapporo/public/settings.jpeg" alt="settings_icon" id="settings_icon">
+                    </label>
+
+                    <nav class="menu">
+                        <ul class="category_list">
+                            <li class="category">Kategoria 1
+                                <ul class="subcategory_list">
+                                    <li class="subcategory">
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check1" name="menu_group">
+                                        <label for="subcategory_check1" class="subcategory_label">Podkategoria 1.1</label>
+                                        <ul class="subsubcategory_list">
+                                            <li class="subsubcategory">Podpodkategoria 1.1.1</li>
+                                            <li class="subsubcategory">Podpodkategoria 1.1.2</li>
+                                        </ul>
+                                    </li>
+                                    <li class="subcategory">
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check2" name="menu_group">
+                                        <label for="subcategory_check2" class="subcategory_label">Podkategoria 1.2</label>
+                                        <ul class="subsubcategory_list">
+                                            <li class="subsubcategory">Podpodkategoria 1.2.1</li>
+                                            <li class="subsubcategory">Podpodkategoria 1.2.2</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="category">Kategoria 2
+                                <ul class="subcategory_list">
+                                    <li class="subcategory">
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check3" name="menu_group">
+                                        <label for="subcategory_check3" class="subcategory_label">Podkategoria 2.1</label>
+                                        <ul class="subsubcategory_list">
+                                            <li class="subsubcategory">Podpodkategoria 2.1.1</li>
+                                            <li class="subsubcategory">Podpodkategoria 2.1.2</li>
+                                        </ul>
+                                    </li>
+                                    <li class="subcategory">
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check4" name="menu_group">
+                                        <label for="subcategory_check4" class="subcategory_label">Podkategoria 2.2</label>
+                                        <ul class="subsubcategory_list">
+                                            <li class="subsubcategory">Podpodkategoria 2.2.1</li>
+                                            <li class="subsubcategory">Podpodkategoria 2.2.2</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="category">Kategoria 3
+                                <ul class="subcategory_list">
+                                    <li class="subcategory">
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check5" name="menu_group">
+                                        <label for="subcategory_check5" class="subcategory_label">Podkategoria 3.1</label>
+                                        <ul class="subsubcategory_list">
+                                            <li class="subsubcategory">Podpodkategoria 3.1.1</li>
+                                            <li class="subsubcategory">Podpodkategoria 3.1.2</li>
+                                        </ul>
+                                    </li>
+                                    <li class="subcategory">
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check6" name="menu_group">
+                                        <label for="subcategory_check6" class="subcategory_label">Podkategoria 3.2</label>
+                                        <ul class="subsubcategory_list">
+                                            <li class="subsubcategory">Podpodkategoria 3.2.1</li>
+                                            <li class="subsubcategory">Podpodkategoria 3.2.2</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </li>
             </ul>
         </nav>
     </header>
 
     <section class="container">
-        <form action="/login.php" method="post" autocomplete="on">
-            <h1>Log in</h1>
-            <div>
+        <form action="/login.php" method="post" autocomplete="on" style="display: flex; flex-direction: column; 
+        gap: 10px; justify-content: center; align-items: center;">
+            <h1 style="text-align: center;">Log in</h1>
+            <div style="text-align: center;">
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" required placeholder="Your email...">
             </div>
 
-            <div>
+            <div style="text-align: center;">
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password" required placeholder="Your password...">
             </div>
@@ -58,12 +131,14 @@
                 <input type="file" name="" id="" placeholder="to jest test">
             </div> -->
 
-            <div>
+            <div style="text-align: center;">
                 <small>Don't have account? <a href="register.html">Sign up!</a></small>
             </div>
 
-            <button type="button">Log in</button>
-            <button type="reset">Clear</button>
+            <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+                <button type="button">Log in</button>
+                <button type="reset">Clear</button>
+            </div>
         </form>
 
     </section>
@@ -71,6 +146,9 @@
     <footer>
         <div>
             <p>&copy; Sapporo 2024 <a href="https://lukaszfabia.vercel.app" target="_blank">Lukasz Fabia</a></p>
+            <div>
+                <p>i ja, Igor P.</p>
+            </div>
         </div>
     </footer>
 </body>
