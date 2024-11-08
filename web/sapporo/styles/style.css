@@ -226,7 +226,7 @@ nav {
 }
 
 .subcategory_check[type="checkbox"]:checked ~ label ~ .subsubcategory_list {
-    max-height: 100%;
+    max-height: 130px;
 }
 
 .subcategory {
