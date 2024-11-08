@@ -58,10 +58,6 @@ li:empty::after {
     content: "empty li";
 }
 
-li:first-of-type {
-    text-decoration: underline;
-}
-
 .container { /* selektor klasy */
     padding-right: 4rem;
     padding-left: 4rem;
@@ -175,12 +171,15 @@ nav {
 .category {
     position: relative;
     height: 100%;
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 .subcategory_list {
     list-style: none;
     display: none;
     position: absolute;
+    overflow: hidden;
     top: 100%;
     left: 50%;
     width: 33.33vw;
@@ -189,7 +188,7 @@ nav {
     background-color: rgba(255, 255, 255, 1);
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
     z-index: 20;
-    padding: 0;
+    padding: 3px 0 0 0;
     margin: 0;
 }
 
@@ -200,10 +199,13 @@ nav {
     top: 100%;
     left: 0;
     flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: #f4f4f4;
+    border-left: 2px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 30;
     margin: 0;
     padding: 0;
+    transition: max-height 0.3s ease-in-out;
 }
 
 .category:hover > ul {
@@ -222,7 +224,7 @@ nav {
 }
 
 .subcategory_check[type="checkbox"]:checked ~ label ~ .subsubcategory_list {
-    max-height: 100px;
+    max-height: 100%;
 }
 
 .subcategory {
@@ -232,6 +234,35 @@ nav {
     justify-content: center;
     justify-items: center;
     text-align: center;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.subcategory_check:checked ~ .subcategory_label {
+    background-color: #1d1d1d;
+    color: white;
+}
+
+.subsubcategory {
+    padding: 8px 0;
+    margin: 5px 0;
+}
+
+.subcategory_label {
+    display: block;
+    padding: 12px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.subcategory_label:hover {
+    background-color: #1d1d1d;
+    color: white;
+    transform: translateY(-2px);
 }
 
 a:link:not(.link) {
