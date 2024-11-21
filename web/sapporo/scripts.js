@@ -9,3 +9,13 @@ function validatePasswordInput() {
 }
 
 document.getElementById("password").addEventListener("blur", validatePasswordInput);
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const loginButton = document.getElementById("login");
+
+    loginButton.addEventListener("click", () => {
+        document.writeln("Niepoprawne dane logowania");
+    });
+});

@@ -13,6 +13,19 @@
     <title>Sapporo - 札幌市</title>
 
     <script src="scripts.js" defer></script>
+    <script defer>
+        window.addEventListener("DOMContentLoaded", () => {
+            const button = document.getElementById("clear");
+        
+            button.addEventListener("click", () => {
+                const randomColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+                
+                button.style.backgroundColor = randomColor;
+        
+                console.log(`Kolor przycisku zmieniony na: ${randomColor}`);
+            });
+        });        
+    </script>
     <link rel="stylesheet" href="styles/style.css">
 </head>
 
@@ -137,8 +150,8 @@
             </div>
 
             <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
-                <button type="button">Log in</button>
-                <button type="reset">Clear</button>
+                <button type="button" id="login">Log in</button>
+                <button type="reset" id="clear">Clear</button>
             </div>
         </form>
 

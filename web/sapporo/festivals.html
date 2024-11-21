@@ -13,6 +13,140 @@
     <title>Sapporo - 札幌市</title>
 
     <link rel="stylesheet" href="styles/style.css">
+
+    <script>
+        let userName = "user_name"
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const devLink = document.querySelector('a[href^="mailto:"]'); // Pobiera link "dev"
+            const devContainer = document.createElement("div");
+            devLink.parentNode.parentNode.appendChild(devContainer);
+        
+            devLink.addEventListener("click", (event) => {
+                event.preventDefault();
+        
+                window.alert(userName + ", ten link powinien otworzyć klienta pocztowego.");
+                const feedback = window.prompt(userName + ", jeśli chcesz otworzyć klienta pocztowego wpisz TAK:");
+        
+                if (feedback && feedback.toLowerCase() === "tak") {
+                    devContainer.innerHTML = `<p style="color: green;">Dzięki! Przeniesiemy Cię do klienta pocztowego.</p>`;
+                    setTimeout(() => {
+                        window.location.href = devLink.href;
+                    }, 1000);
+                } else {
+                    devContainer.innerHTML = `<p style="color: red;">Nie wysyłasz wiadomości e-mail.</p>`;
+                }
+            });
+
+            
+
+            document.getElementById('day_of_week').addEventListener('click', function() {
+                const feedback = window.prompt("Podaj numer dnia tygodnia " + userName + ":");
+                
+                const day = parseInt(feedback);
+                
+                let output;
+
+                if (day < 8 && day > 0) {
+                    const dayName = getDayOfWeek(day);
+                    output = "Dzisiaj jest " + dayName;
+                } else {
+                    output = "Niepoprawny numer.";
+                }
+                window.alert(output);
+            });
+
+            document.getElementById('number').addEventListener('click', processNumber);
+
+
+        });
+
+        function processNumber() {
+            let input;
+            let isValid = false;
+        
+            while (!isValid) {
+                input = window.prompt("Podaj liczbę zmiennoprzecinkową:");
+        
+                if (input !== null && !isNaN(input) && input.includes('.')) {
+                    isValid = true;
+                } else {
+                    window.alert("Wprowadzona wartość nie jest liczbą zmiennoprzecinkową. Spróbuj ponownie.");
+                }
+            }
+        
+            let number = parseFloat(input);
+        
+            let digits = number.toString().split('');
+        
+            let addValue;
+            let isAddValueValid = false;
+        
+            while (!isAddValueValid) {
+                addValue = window.prompt("Podaj wartość, którą chcesz dodać do każdej cyfry:");
+        
+                if (addValue !== null && !isNaN(addValue)) {
+                    addValue = parseInt(addValue);
+                    isAddValueValid = true;
+                } else {
+                    window.alert("Wprowadzona wartość nie jest liczbą całkowitą. Spróbuj ponownie.");
+                }
+            }
+        
+            for (let i = 0; i < digits.length; i++) {
+                if (!isNaN(digits[i])) {
+                    digits[i] = parseInt(digits[i]) + addValue;
+                }
+            }
+        
+            for (let i = 0; i < digits.length; i++) {
+                do {
+                    if (digits[i] < 0) {
+                        digits[i] = digits[i] + 10;
+                    }
+                } while (digits[i] < 0);
+                
+                if (digits[i] > 9) {
+                    digits[i] = digits[i] % 10;
+                }
+            }
+        
+            let result = digits.join('');
+            window.alert("Wynik po modyfikacjach: " + result);
+        }
+        
+
+        function getDayOfWeek(day) {
+            let dayName;
+            switch (day) {
+                case 1:
+                    dayName = 'poniedziałek';
+                    break;
+                case 2:
+                    dayName = 'wtorek';
+                    break;
+                case 3:
+                    dayName = 'środa';
+                    break;
+                case 4:
+                    dayName = 'czwartek';
+                    break;
+                case 5:
+                    dayName = 'piątek';
+                    break;
+                case 6:
+                    dayName = 'sobota';
+                    break;
+                case 7:
+                    dayName = 'niedziela';
+                    break;
+                default:
+                    dayName = 'niepoprawny dzień';
+            }
+
+            return dayName;
+        }
+    </script>
 </head>
 
 <body>
@@ -122,6 +256,11 @@
                 <img src="https://i0.wp.com/www.bapl.org/wp-content/uploads/2019/02/old-under-construction-gif.gif?ssl=1"
                     alt="Under construction sign">
             </a>
+        </div>
+
+        <div>
+            <button id="day_of_week">Sprawdz dzien tygodnia</button>
+            <button id="number">Zmodyfikuj liczbe zmiennoprzecinkowa</button>
         </div>
     </main>
 
