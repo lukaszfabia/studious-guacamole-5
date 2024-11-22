@@ -16,12 +16,12 @@
     <script defer>
         window.addEventListener("DOMContentLoaded", () => {
             const button = document.getElementById("clear");
-        
+
             button.addEventListener("click", () => {
                 const randomColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
-                
+
                 button.style.backgroundColor = randomColor;
-        
+
                 console.log(`Kolor przycisku zmieniony na: ${randomColor}`);
             });
         });        
@@ -57,16 +57,20 @@
                             <li class="category">Kategoria 1
                                 <ul class="subcategory_list">
                                     <li class="subcategory">
-                                        <input type='checkbox' class="subcategory_check" id="subcategory_check1" name="menu_group">
-                                        <label for="subcategory_check1" class="subcategory_label">Podkategoria 1.1</label>
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check1"
+                                            name="menu_group">
+                                        <label for="subcategory_check1" class="subcategory_label">Podkategoria
+                                            1.1</label>
                                         <ul class="subsubcategory_list">
                                             <li class="subsubcategory">Podpodkategoria 1.1.1</li>
                                             <li class="subsubcategory">Podpodkategoria 1.1.2</li>
                                         </ul>
                                     </li>
                                     <li class="subcategory">
-                                        <input type='checkbox' class="subcategory_check" id="subcategory_check2" name="menu_group">
-                                        <label for="subcategory_check2" class="subcategory_label">Podkategoria 1.2</label>
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check2"
+                                            name="menu_group">
+                                        <label for="subcategory_check2" class="subcategory_label">Podkategoria
+                                            1.2</label>
                                         <ul class="subsubcategory_list">
                                             <li class="subsubcategory">Podpodkategoria 1.2.1</li>
                                             <li class="subsubcategory">Podpodkategoria 1.2.2</li>
@@ -77,16 +81,20 @@
                             <li class="category">Kategoria 2
                                 <ul class="subcategory_list">
                                     <li class="subcategory">
-                                        <input type='checkbox' class="subcategory_check" id="subcategory_check3" name="menu_group">
-                                        <label for="subcategory_check3" class="subcategory_label">Podkategoria 2.1</label>
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check3"
+                                            name="menu_group">
+                                        <label for="subcategory_check3" class="subcategory_label">Podkategoria
+                                            2.1</label>
                                         <ul class="subsubcategory_list">
                                             <li class="subsubcategory">Podpodkategoria 2.1.1</li>
                                             <li class="subsubcategory">Podpodkategoria 2.1.2</li>
                                         </ul>
                                     </li>
                                     <li class="subcategory">
-                                        <input type='checkbox' class="subcategory_check" id="subcategory_check4" name="menu_group">
-                                        <label for="subcategory_check4" class="subcategory_label">Podkategoria 2.2</label>
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check4"
+                                            name="menu_group">
+                                        <label for="subcategory_check4" class="subcategory_label">Podkategoria
+                                            2.2</label>
                                         <ul class="subsubcategory_list">
                                             <li class="subsubcategory">Podpodkategoria 2.2.1</li>
                                             <li class="subsubcategory">Podpodkategoria 2.2.2</li>
@@ -97,16 +105,20 @@
                             <li class="category">Kategoria 3
                                 <ul class="subcategory_list">
                                     <li class="subcategory">
-                                        <input type='checkbox' class="subcategory_check" id="subcategory_check5" name="menu_group">
-                                        <label for="subcategory_check5" class="subcategory_label">Podkategoria 3.1</label>
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check5"
+                                            name="menu_group">
+                                        <label for="subcategory_check5" class="subcategory_label">Podkategoria
+                                            3.1</label>
                                         <ul class="subsubcategory_list">
                                             <li class="subsubcategory">Podpodkategoria 3.1.1</li>
                                             <li class="subsubcategory">Podpodkategoria 3.1.2</li>
                                         </ul>
                                     </li>
                                     <li class="subcategory">
-                                        <input type='checkbox' class="subcategory_check" id="subcategory_check6" name="menu_group">
-                                        <label for="subcategory_check6" class="subcategory_label">Podkategoria 3.2</label>
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check6"
+                                            name="menu_group">
+                                        <label for="subcategory_check6" class="subcategory_label">Podkategoria
+                                            3.2</label>
                                         <ul class="subsubcategory_list">
                                             <li class="subsubcategory">Podpodkategoria 3.2.1</li>
                                             <li class="subsubcategory">Podpodkategoria 3.2.2</li>
@@ -123,38 +135,32 @@
 
     <section class="container">
         <form action="/login.php" method="post" autocomplete="on" style="display: flex; flex-direction: column; 
-        gap: 10px; justify-content: center; align-items: center;">
+        gap: 10px; justify-content: center; align-items: center;" id="loginForm">
             <h1 style="text-align: center;">Log in</h1>
+
             <div style="text-align: center;">
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" required placeholder="Your email...">
             </div>
+            <div id="emailHelp" style="color: gray;">Please provide email.</div>
 
             <div style="text-align: center;">
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password" required placeholder="Your password...">
             </div>
-
-
-            <!-- 
-            do tych trzech nie zadziała placeholder
-            <div>
-                <input type="date" name="" id="" placeholder="2003.12.12">
-                <input type="checkbox" name="" id="" placeholder="XD">
-                <input type="button" value="" placeholder="XDD">
-                <input type="file" name="" id="" placeholder="to jest test">
-            </div> -->
+            <div id="passwordHelp" style="color: gray;">Please provide password.</div>
 
             <div style="text-align: center;">
                 <small>Don't have account? <a href="register.html">Sign up!</a></small>
             </div>
 
             <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
-                <button type="button" id="login">Log in</button>
-                <button type="reset" id="clear">Clear</button>
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
             </div>
         </form>
 
+        <script src="js/form.js"></script>
     </section>
 
     <footer>

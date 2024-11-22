@@ -21,13 +21,13 @@
             const devLink = document.querySelector('a[href^="mailto:"]'); // Pobiera link "dev"
             const devContainer = document.createElement("div");
             devLink.parentNode.parentNode.appendChild(devContainer);
-        
+
             devLink.addEventListener("click", (event) => {
                 event.preventDefault();
-        
+
                 window.alert(userName + ", ten link powinien otworzyć klienta pocztowego.");
                 const feedback = window.prompt(userName + ", jeśli chcesz otworzyć klienta pocztowego wpisz TAK:");
-        
+
                 if (feedback && feedback.toLowerCase() === "tak") {
                     devContainer.innerHTML = `<p style="color: green;">Dzięki! Przeniesiemy Cię do klienta pocztowego.</p>`;
                     setTimeout(() => {
@@ -38,13 +38,13 @@
                 }
             });
 
-            
 
-            document.getElementById('day_of_week').addEventListener('click', function() {
+
+            document.getElementById('day_of_week').addEventListener('click', function () {
                 const feedback = window.prompt("Podaj numer dnia tygodnia " + userName + ":");
-                
+
                 const day = parseInt(feedback);
-                
+
                 let output;
 
                 if (day < 8 && day > 0) {
@@ -64,27 +64,27 @@
         function processNumber() {
             let input;
             let isValid = false;
-        
+
             while (!isValid) {
                 input = window.prompt("Podaj liczbę zmiennoprzecinkową:");
-        
+
                 if (input !== null && !isNaN(input) && input.includes('.')) {
                     isValid = true;
                 } else {
                     window.alert("Wprowadzona wartość nie jest liczbą zmiennoprzecinkową. Spróbuj ponownie.");
                 }
             }
-        
+
             let number = parseFloat(input);
-        
+
             let digits = number.toString().split('');
-        
+
             let addValue;
             let isAddValueValid = false;
-        
+
             while (!isAddValueValid) {
                 addValue = window.prompt("Podaj wartość, którą chcesz dodać do każdej cyfry:");
-        
+
                 if (addValue !== null && !isNaN(addValue)) {
                     addValue = parseInt(addValue);
                     isAddValueValid = true;
@@ -92,29 +92,29 @@
                     window.alert("Wprowadzona wartość nie jest liczbą całkowitą. Spróbuj ponownie.");
                 }
             }
-        
+
             for (let i = 0; i < digits.length; i++) {
                 if (!isNaN(digits[i])) {
                     digits[i] = parseInt(digits[i]) + addValue;
                 }
             }
-        
+
             for (let i = 0; i < digits.length; i++) {
                 do {
                     if (digits[i] < 0) {
                         digits[i] = digits[i] + 10;
                     }
                 } while (digits[i] < 0);
-                
+
                 if (digits[i] > 9) {
                     digits[i] = digits[i] % 10;
                 }
             }
-        
+
             let result = digits.join('');
             window.alert("Wynik po modyfikacjach: " + result);
         }
-        
+
 
         function getDayOfWeek(day) {
             let dayName;
@@ -177,16 +177,20 @@
                             <li class="category">Kategoria 1
                                 <ul class="subcategory_list">
                                     <li class="subcategory">
-                                        <input type='checkbox' class="subcategory_check" id="subcategory_check1" name="menu_group">
-                                        <label for="subcategory_check1" class="subcategory_label">Podkategoria 1.1</label>
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check1"
+                                            name="menu_group">
+                                        <label for="subcategory_check1" class="subcategory_label">Podkategoria
+                                            1.1</label>
                                         <ul class="subsubcategory_list">
                                             <li class="subsubcategory">Podpodkategoria 1.1.1</li>
                                             <li class="subsubcategory">Podpodkategoria 1.1.2</li>
                                         </ul>
                                     </li>
                                     <li class="subcategory">
-                                        <input type='checkbox' class="subcategory_check" id="subcategory_check2" name="menu_group">
-                                        <label for="subcategory_check2" class="subcategory_label">Podkategoria 1.2</label>
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check2"
+                                            name="menu_group">
+                                        <label for="subcategory_check2" class="subcategory_label">Podkategoria
+                                            1.2</label>
                                         <ul class="subsubcategory_list">
                                             <li class="subsubcategory">Podpodkategoria 1.2.1</li>
                                             <li class="subsubcategory">Podpodkategoria 1.2.2</li>
@@ -197,16 +201,20 @@
                             <li class="category">Kategoria 2
                                 <ul class="subcategory_list">
                                     <li class="subcategory">
-                                        <input type='checkbox' class="subcategory_check" id="subcategory_check3" name="menu_group">
-                                        <label for="subcategory_check3" class="subcategory_label">Podkategoria 2.1</label>
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check3"
+                                            name="menu_group">
+                                        <label for="subcategory_check3" class="subcategory_label">Podkategoria
+                                            2.1</label>
                                         <ul class="subsubcategory_list">
                                             <li class="subsubcategory">Podpodkategoria 2.1.1</li>
                                             <li class="subsubcategory">Podpodkategoria 2.1.2</li>
                                         </ul>
                                     </li>
                                     <li class="subcategory">
-                                        <input type='checkbox' class="subcategory_check" id="subcategory_check4" name="menu_group">
-                                        <label for="subcategory_check4" class="subcategory_label">Podkategoria 2.2</label>
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check4"
+                                            name="menu_group">
+                                        <label for="subcategory_check4" class="subcategory_label">Podkategoria
+                                            2.2</label>
                                         <ul class="subsubcategory_list">
                                             <li class="subsubcategory">Podpodkategoria 2.2.1</li>
                                             <li class="subsubcategory">Podpodkategoria 2.2.2</li>
@@ -217,16 +225,20 @@
                             <li class="category">Kategoria 3
                                 <ul class="subcategory_list">
                                     <li class="subcategory">
-                                        <input type='checkbox' class="subcategory_check" id="subcategory_check5" name="menu_group">
-                                        <label for="subcategory_check5" class="subcategory_label">Podkategoria 3.1</label>
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check5"
+                                            name="menu_group">
+                                        <label for="subcategory_check5" class="subcategory_label">Podkategoria
+                                            3.1</label>
                                         <ul class="subsubcategory_list">
                                             <li class="subsubcategory">Podpodkategoria 3.1.1</li>
                                             <li class="subsubcategory">Podpodkategoria 3.1.2</li>
                                         </ul>
                                     </li>
                                     <li class="subcategory">
-                                        <input type='checkbox' class="subcategory_check" id="subcategory_check6" name="menu_group">
-                                        <label for="subcategory_check6" class="subcategory_label">Podkategoria 3.2</label>
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check6"
+                                            name="menu_group">
+                                        <label for="subcategory_check6" class="subcategory_label">Podkategoria
+                                            3.2</label>
                                         <ul class="subsubcategory_list">
                                             <li class="subsubcategory">Podpodkategoria 3.2.1</li>
                                             <li class="subsubcategory">Podpodkategoria 3.2.2</li>
@@ -250,18 +262,28 @@
             </p>
         </div>
 
-        <div style="display: flex; align-items: center; justify-content: center;">
-            <a href="https://i0.wp.com/www.bapl.org/wp-content/uploads/2019/02/old-under-construction-gif.gif?ssl=1"
-                download>
-                <img src="https://i0.wp.com/www.bapl.org/wp-content/uploads/2019/02/old-under-construction-gif.gif?ssl=1"
-                    alt="Under construction sign">
-            </a>
-        </div>
-
         <div>
             <button id="day_of_week">Sprawdz dzien tygodnia</button>
             <button id="number">Zmodyfikuj liczbe zmiennoprzecinkowa</button>
             <button onclick="window.location.href='zgadywanki.html'">Przejdź do zgadywanek</button>
+        </div>
+
+        <h1>Mouse Events</h1>
+        <div id="demo-area" style="margin-top: 50px; margin-bottom: 50px;">
+            <p>Zademonstrować możliwości właściwości altKey, ctrlKey, shiftKey, keyCode, clientX, clientY, screenX,
+                screenY obiektu event.
+                Wykorzystać zdarzenia: mousemove, mousedown, mouseover, mouseout.</p>
+        </div>
+
+        <div id="info">
+            <p><strong>altKey:</strong> <span id="altKey"></span></p>
+            <p><strong>ctrlKey:</strong> <span id="ctrlKey"></span></p>
+            <p><strong>shiftKey:</strong> <span id="shiftKey"></span></p>
+            <p><strong>keyCode (for key events):</strong> <span id="keyCode"></span></p>
+            <p><strong>Client X:</strong> <span id="clientX"></span></p>
+            <p><strong>Client Y:</strong> <span id="clientY"></span></p>
+            <p><strong>Screen X:</strong> <span id="screenX"></span></p>
+            <p><strong>Screen Y:</strong> <span id="screenY"></span></p>
         </div>
     </main>
 
@@ -275,5 +297,7 @@
         </div>
     </footer>
 </body>
+
+<script src="js/keys.js"></script>
 
 </html>
