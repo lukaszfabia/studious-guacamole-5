@@ -43,16 +43,20 @@
                             <li class="category">Kategoria 1
                                 <ul class="subcategory_list">
                                     <li class="subcategory">
-                                        <input type='checkbox' class="subcategory_check" id="subcategory_check1" name="menu_group">
-                                        <label for="subcategory_check1" class="subcategory_label">Podkategoria 1.1</label>
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check1"
+                                            name="menu_group">
+                                        <label for="subcategory_check1" class="subcategory_label">Podkategoria
+                                            1.1</label>
                                         <ul class="subsubcategory_list">
                                             <li class="subsubcategory">Podpodkategoria 1.1.1</li>
                                             <li class="subsubcategory">Podpodkategoria 1.1.2</li>
                                         </ul>
                                     </li>
                                     <li class="subcategory">
-                                        <input type='checkbox' class="subcategory_check" id="subcategory_check2" name="menu_group">
-                                        <label for="subcategory_check2" class="subcategory_label">Podkategoria 1.2</label>
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check2"
+                                            name="menu_group">
+                                        <label for="subcategory_check2" class="subcategory_label">Podkategoria
+                                            1.2</label>
                                         <ul class="subsubcategory_list">
                                             <li class="subsubcategory">Podpodkategoria 1.2.1</li>
                                             <li class="subsubcategory">Podpodkategoria 1.2.2</li>
@@ -63,16 +67,20 @@
                             <li class="category">Kategoria 2
                                 <ul class="subcategory_list">
                                     <li class="subcategory">
-                                        <input type='checkbox' class="subcategory_check" id="subcategory_check3" name="menu_group">
-                                        <label for="subcategory_check3" class="subcategory_label">Podkategoria 2.1</label>
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check3"
+                                            name="menu_group">
+                                        <label for="subcategory_check3" class="subcategory_label">Podkategoria
+                                            2.1</label>
                                         <ul class="subsubcategory_list">
                                             <li class="subsubcategory">Podpodkategoria 2.1.1</li>
                                             <li class="subsubcategory">Podpodkategoria 2.1.2</li>
                                         </ul>
                                     </li>
                                     <li class="subcategory">
-                                        <input type='checkbox' class="subcategory_check" id="subcategory_check4" name="menu_group">
-                                        <label for="subcategory_check4" class="subcategory_label">Podkategoria 2.2</label>
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check4"
+                                            name="menu_group">
+                                        <label for="subcategory_check4" class="subcategory_label">Podkategoria
+                                            2.2</label>
                                         <ul class="subsubcategory_list">
                                             <li class="subsubcategory">Podpodkategoria 2.2.1</li>
                                             <li class="subsubcategory">Podpodkategoria 2.2.2</li>
@@ -83,16 +91,20 @@
                             <li class="category">Kategoria 3
                                 <ul class="subcategory_list">
                                     <li class="subcategory">
-                                        <input type='checkbox' class="subcategory_check" id="subcategory_check5" name="menu_group">
-                                        <label for="subcategory_check5" class="subcategory_label">Podkategoria 3.1</label>
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check5"
+                                            name="menu_group">
+                                        <label for="subcategory_check5" class="subcategory_label">Podkategoria
+                                            3.1</label>
                                         <ul class="subsubcategory_list">
                                             <li class="subsubcategory">Podpodkategoria 3.1.1</li>
                                             <li class="subsubcategory">Podpodkategoria 3.1.2</li>
                                         </ul>
                                     </li>
                                     <li class="subcategory">
-                                        <input type='checkbox' class="subcategory_check" id="subcategory_check6" name="menu_group">
-                                        <label for="subcategory_check6" class="subcategory_label">Podkategoria 3.2</label>
+                                        <input type='checkbox' class="subcategory_check" id="subcategory_check6"
+                                            name="menu_group">
+                                        <label for="subcategory_check6" class="subcategory_label">Podkategoria
+                                            3.2</label>
                                         <ul class="subsubcategory_list">
                                             <li class="subsubcategory">Podpodkategoria 3.2.1</li>
                                             <li class="subsubcategory">Podpodkategoria 3.2.2</li>
@@ -136,6 +148,19 @@
         </section>
 
 
+        <section>
+            <h1>Add your job offers</h1>
+            <div>
+                <label for="lang">Language</label>
+                <input type="text" name="lang" id="lang" placeholder="Language...">
+                <button type="button" onclick="addNewLanguage()">Add</button>
+                <ul id="lang-list">
+
+                </ul>
+            </div>
+        </section>
+
+
         <section id="attractions">
             <h1>Things to Do in Sapporo</h1>
             <ol>
@@ -164,5 +189,7 @@
         </div>
     </footer>
 </body>
+
+<script src="js/handleJobs.js"></script>
 
 </html>
