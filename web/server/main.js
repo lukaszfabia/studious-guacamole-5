@@ -1,15 +1,16 @@
-
 const myarrowfunc = () => {
-    'use strict';
-    let value = 10;
-    hehe = "121212";
+  //   "use strict";
+  let value = 10;
+  hehe = "121212";
 
-    console.log(hehe);
-}
+  console.log(hehe);
+};
 
-myarrowfunc()
+myarrowfunc();
 
+const x = (str1) =>
+  (y = (str2) =>
+    (z = (str3) =>
+      (a = (str4) => console.log(str1 + str2 + str3 + "=" + str4))));
 
-const x = (str1) => y = (str2) => z = (str3) => a = (str4) => console.log(str1 + str2 + str3 + "=" + str4)
-
-x("1")("+")("3")(4)
+x("1")("+")("3")(4);
