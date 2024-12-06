@@ -6,10 +6,10 @@ To get all dependencies run this:
 npm i
 ```
 
-To run server with tailwindcss
+To run tailwind server
 
 ```bash
 npm run dev
 ```
 
-Then run spring.
+Then run spring by `mvn` or by `VSC` or `IntelliJ`
