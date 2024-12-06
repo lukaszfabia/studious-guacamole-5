@@ -31,6 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
-web/main/src/main/resources/static/css/output.css
-web/main/src/main/resources/node_modules
+src/main/resources/static/css/output.css
 node_modules
