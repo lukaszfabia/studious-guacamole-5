@@ -1,21 +1,21 @@
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "${APP_PORT}:${APP_PORT}"
-    environment:
-      - DBMS=${DBMS}
-      - HOST=${HOST}
-      - PORT=${PORT}
-      - POSTGRES_DB=${POSTGRES_DB}
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - DRIVE_CLASS_NAME=${DRIVE_CLASS_NAME}
-      - DIALECT_HIBERNATE=${DIALECT_HIBERNATE}
-    depends_on:
-      - db
+  # app:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "${APP_PORT}:${APP_PORT}"
+  #   environment:
+  #     - DBMS=${DBMS}
+  #     - HOST=${HOST}
+  #     - PORT=${PORT}
+  #     - POSTGRES_DB=${POSTGRES_DB}
+  #     - POSTGRES_USER=${POSTGRES_USER}
+  #     - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+  #     - DRIVE_CLASS_NAME=${DRIVE_CLASS_NAME}
+  #     - DIALECT_HIBERNATE=${DIALECT_HIBERNATE}
+  #   depends_on:
+  #     - db
   db:
     container_name: web_db_postgres
     image: postgres:16
