@@ -1,36 +1,15 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
-<head>
-    <meta charset="UTF-8">
-    <title>My Spring App</title>
-    <link rel="stylesheet" href="/css/output.css">
-</head>
-
-<body class="font-lato">
-    <header class="bg-gray-800 p-10 text-3xl">
-        <h1 class="font-extrabold text-gray-100">Hello <span class="text-green-500 font-semibold">Spring</span></h1>
-    </header>
-
-    <main class="p-10">
-        <section>
-            <h1 class="font-bold font-poppins text-2xl">Tech-stack na zajęcia</h1>
-            <p class="text-gray-500 py-1">Przy okazji pokaz TailwindCSS</p>
-            <ul class="list-disc list-inside text-lg">
-                <li class="font-shantell text-xl">Frontend
-                    <ol class="list-inside list-decimal ml-10 font-poppins text-lg">
-                        <li class="text-blue-600 font-bold">TailwindCSS</li>
-                        <li class="text-black">Daisy UI</li>
-                    </ol>
-                </li>
-                <li class="font-shantell text-xl">Backend
-                    <ol class="list-inside list-decimal ml-10 font-poppins text-lg">
-                        <li class="text-green-500 font-bold text-lg">Spring</li>
-                    </ol>
-                </li>
-            </ul>
-        </section>
-    </main>
+<body>
+    <div class="hero bg-base-200 p-10">
+        <div class="hero-content text-center">
+            <div class="max-w-md gap-y-5">
+                <h1 class="text-5xl font-bold">Hello there</h1>
+                <p class="py-6">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio nobis veniam perferendis
+                    molestias dolorum repellendus soluta corrupti quam, eligendi reprehenderit, expedita eum, modi enim
+                    vel. Qui, animi eius. Doloremque, rerum?
+                </p>
+                <a href="/products" th:href="@{/products}" class="btn btn-primary mt-10">Get Started</a>
+            </div>
+        </div>
+    </div>
 </body>
-
-</html>
