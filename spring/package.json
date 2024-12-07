@@ -1,8 +1,9 @@
 {
   "name": "main",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "",
   "scripts": {
+    "build": "npx tailwindcss -i ./src/main/resources/static/css/main.css -o ./src/main/resources/static/css/output.css --minify",
     "dev": "concurrently \"npx tailwindcss -i ./src/main/resources/static/css/main.css -o ./src/main/resources/static/css/output.css --watch\" \"browser-sync start --proxy 'http://localhost:8080' --files './src/main/resources/static/css/*.css, ./src/main/resources/templates/**/*.html'\""
   },
   "keywords": [],

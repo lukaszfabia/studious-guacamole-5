@@ -33,3 +33,6 @@ build/
 .vscode/
 src/main/resources/static/css/output.css
 node_modules
+
+.env
+src/main/resources/.env
