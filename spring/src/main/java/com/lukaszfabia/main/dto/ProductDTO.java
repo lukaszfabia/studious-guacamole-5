@@ -23,7 +23,7 @@ public record ProductDTO(
     }
 
     public ProductDTO(Product product) {
-        this(product.getId(), product.getName(), product.getWeight(), product.getPrice(),
+        this(product.getId(), product.getName(), product.getWeight().doubleValue(), product.getPrice().doubleValue(),
                 product.getCategory());
     }
 
