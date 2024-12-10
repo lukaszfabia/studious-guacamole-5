@@ -7,3 +7,9 @@ CREATE TABLE IF NOT EXISTS products (
   price NUMERIC(10, 2),
   weight NUMERIC(10, 2)
 );
+
+CREATE TABLE IF NOT EXISTS categories (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    code VARCHAR(255) NOT NULL
+)

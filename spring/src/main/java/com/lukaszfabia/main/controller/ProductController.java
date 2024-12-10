@@ -16,9 +16,9 @@ import com.lukaszfabia.main.service.ProductService;
 @RequestMapping("/products")
 public class ProductController {
 
-    @Autowired
     private final ProductService productService;
 
+    @Autowired
     public ProductController(ProductService productService) {
         this.productService = productService;
     }
