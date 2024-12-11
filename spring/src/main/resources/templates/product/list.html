@@ -12,7 +12,10 @@
                     </label>
                     <label class="input input-bordered flex items-center gap-2">
                         Category
-                        <input th:field="*{category}" required type="text" class="grow" placeholder="Food" />
+                        <select th:field="*{category}" required class="grow max-h-24 overflow-y-scroll">
+                            <option value="" disabled selected>Choose a category</option>
+                            <option th:each="category : ${categoriesDTO}" th:value="${category.id}" th:text="${category.name}"></option>
+                        </select>
                     </label>
                     <label class="input input-bordered flex items-center gap-2">
                         Weight
@@ -51,7 +54,7 @@
                     <tr th:if="${not #lists.isEmpty(productsDTO)}" th:each="product : ${productsDTO}" class="hover">
                         <td th:text="${product.id}"></td>
                         <td th:text="${product.name}"></td>
-                        <td th:text="${product.category}"></td>
+                        <td th:text="${product.category.name}"></td>
                         <td th:text="${product.price}"></td>
                         <td th:text="${product.weight}"></td>
                         <td class="flex items-end justify-end">

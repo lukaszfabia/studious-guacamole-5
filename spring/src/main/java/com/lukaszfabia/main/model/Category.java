@@ -3,6 +3,8 @@ package com.lukaszfabia.main.model;
 import com.lukaszfabia.main.dto.CategoryDTO;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "categories")
 public class Category {
@@ -15,8 +17,11 @@ public class Category {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "code", nullable = false)
+    @Column(name = "code", nullable = false, unique = true)
     private String code;
+
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Product> products;
 
     public Category(CategoryDTO categoryDTO) {
         this.name = categoryDTO.name();
