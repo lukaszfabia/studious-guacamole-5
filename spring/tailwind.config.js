@@ -1,30 +1,20 @@
+import daisyui from "daisyui";
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/main/resources/templates/**/*.html",
-    "./src/main/resources/templates/**/*.thymeleaf"
-  ],
+  content: ["./src/main/resources/templates/**/*.html"],
   theme: {
-    extend: {
-
-    },
+    extend: {},
     fontFamily: {
-      'poppins': ['Poppins', 'sans-serif'],
-      'lato': ['Lato', 'sans-serif'],
-      'shantell': ['Shantell Sans', 'sans-serif'],
-      'ubuntu': ['Ubutnu', 'sans-serif']
-    }
+      poppins: ["Poppins", "sans-serif"],
+      lato: ["Lato", "sans-serif"],
+      shantell: ["Shantell Sans", "sans-serif"],
+      ubuntu: ["Ubutnu", "sans-serif"],
+    },
   },
-  plugins: [
-    require('daisyui'),
-  ],
+  plugins: [daisyui],
   daisyui: {
-    themes: [
-      "cupcake",
-      "sunset"
-    ],
+    themes: ["cupcake", "sunset"],
   },
-  darkMode: ['class', '[data-theme="sunset"]']
+  darkMode: ["class", '[data-theme="sunset"]'],
 };
-
-
