@@ -9,6 +9,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "products")
 public class Product {
@@ -26,16 +28,16 @@ public class Product {
     private String category;
 
     @Column(name = "weight")
-    private Double weight;
+    private BigDecimal weight;
 
     @Column(name = "price")
-    private Double price;
+    private BigDecimal price;
 
     public Product(ProductDTO productDTO) {
         this.name = productDTO.name();
         this.category = productDTO.category();
-        this.price = productDTO.price();
-        this.weight = productDTO.weight();
+        this.price = BigDecimal.valueOf(productDTO.price());
+        this.weight = BigDecimal.valueOf(productDTO.weight());
     }
 
     public Product() {
@@ -56,11 +58,11 @@ public class Product {
         return this.category;
     }
 
-    public Double getPrice() {
+    public BigDecimal getPrice() {
         return this.price;
     }
 
-    public Double getWeight() {
+    public BigDecimal getWeight() {
         return this.weight;
     }
 
@@ -82,16 +84,16 @@ public class Product {
         }
     }
 
-    public void setPrice(Double price) throws Exception {
-        if (price < 0) {
+    public void setPrice(BigDecimal price) throws Exception {
+        if (price.floatValue() < 0) {
             throw new Exception("Price can't be negative!");
         } else {
             this.price = price;
         }
     }
 
-    public void setWeight(Double weight) throws Exception {
-        if (weight < 0) {
+    public void setWeight(BigDecimal weight) throws Exception {
+        if (weight.floatValue() < 0) {
             throw new Exception("Weight can't be negative!");
         } else {
             this.weight = weight;

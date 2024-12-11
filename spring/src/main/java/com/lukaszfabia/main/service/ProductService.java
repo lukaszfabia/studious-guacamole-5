@@ -1,5 +1,6 @@
 package com.lukaszfabia.main.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -64,8 +65,8 @@ public class ProductService {
             try {
                 product.setName(productDTO.name());
                 product.setCategory(productDTO.category());
-                product.setPrice(productDTO.price());
-                product.setWeight(productDTO.weight());
+                product.setPrice(BigDecimal.valueOf(productDTO.price()));
+                product.setWeight(BigDecimal.valueOf(productDTO.weight()));
             } catch (Exception e) {
                 return new ProductDTO(product);
             }
