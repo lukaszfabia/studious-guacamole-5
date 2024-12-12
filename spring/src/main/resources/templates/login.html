@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+  <html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>Shop</title>
+    <link rel="stylesheet" href="../static/css/output.css">
+  </head>
+  <body>
+    <div class="bg-gray-100 min-h-screen flex items-center justify-center">
+      <div class="bg-white shadow-lg rounded-xl p-10 w-full max-w-md">
+        <section>
+          <h1 class="text-2xl font-semibold text-center">Welcome Back! <span class="text-green-500">Login</span></h1>
+          <div class="py-4"></div>
+          <form th:action="@{/login}" method="post" class="space-y-4">
+            <div class="form-control">
+              <label class="input input-bordered flex flex-col gap-1">
+                <span class="text-gray-700">Email</span>
+                <input th:field="*{email}" required type="email" class="input input-bordered" placeholder="example@domain.com" />
+              </label>
+            </div>
+            <div class="form-control">
+              <label class="input input-bordered flex flex-col gap-1">
+                <span class="text-gray-700">Password</span>
+                <input th:field="*{password}" required type="password" class="input input-bordered" placeholder="********" />
+              </label>
+            </div>
+            <div class="flex items-center justify-end">
+              <a href="/forgot-password" class="text-sm text-green-500 hover:underline">Forgot password?</a>
+            </div>
+            <button type="submit" class="btn btn-primary w-full">Login</button>
+          </form>
+        </section>
+        <section class="pt-6 text-center">
+          <p class="text-gray-600">Don't have an account? <a href="/register" class="text-green-500 hover:underline">Sign up</a></p>
+        </section>
+      </div>
+    </div>
+
+    <footer class="footer footer-center bg-gray-800 text-lg p-5 text-gray-200">
+      <div class="flex items-center justify-center">
+        <p>&copy; 2024 Webowka 2024/25</p>
+        <a href="https://lukasz.vercel.app" target="_blank">lukaszfabia.dev</a>
+      </div>
+    </footer>
+  </body>
+
+</html>
