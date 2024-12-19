@@ -4,14 +4,16 @@ function renderCart() {
     let cartHtml = "";
     cart.forEach(item => {
         cartHtml += `
-            <tr>
+            <tr class="hover">
                 <td>${item.name}</td>
                 <td>${item.price}</td>
                 <td>
-                    <input type="number" value="${item.quantity}" onchange="updateQuantity(${item.id}, this.value)">
+                    <button onclick="updateQuantity(${item.id}, -1)" class="btn btn-decrement">-</button>
+                    <span id="quantity-${item.id}">${item.quantity}</span>
+                    <button onclick="updateQuantity(${item.id}, 1)" class="btn btn-increment">+</button>
                 </td>
-                <td>${(item.price * item.quantity).toFixed(2)}</td>
-                <td>
+                <td id="price-${item.id}">${(item.price * item.quantity).toFixed(2)}</td>
+                <td class="flex items-end justify-end">
                     <button onclick="removeFromCart(${item.id})">Usuń</button>
                 </td>
             </tr>
@@ -22,23 +24,54 @@ function renderCart() {
 }
 
 function renderTotalPrice() {
-    const cart = getCartFromCookies();
-    const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    document.getElementById("totalPrice").innerText = totalPrice.toFixed(2);
+    document.getElementById("totalPrice").innerText = getTotalPrice().toFixed(2);
 }
 
-
-
-function updateQuantity(productId, quantity) {
+function getTotalPrice() {
     const cart = getCartFromCookies();
-    const item = cart.find(item => item.id === productId);
+    return cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+}
+
+function updateQuantity(productId, change) {
+    const cart = getCartFromCookies();
+    console.log(cart);
+    const id = parseInt(productId);
+    const item = cart.find(item => parseInt(item.id) === id);
+
     if (item) {
-        item.quantity = quantity;
+        item.quantity += change;
+
+        if (item.quantity < 1) {
+            item.quantity = 1;
+        }
+
+        saveCartToCookies(cart);
+        const quantityElement = document.getElementById(`quantity-${id}`);
+        const priceElement = document.getElementById(`price-${id}`);
+        const totalPrice = document.getElementById("totalPrice");
+
+        if (quantityElement) {
+            quantityElement.textContent = item.quantity;
+        } else {
+            console.error(`Nie znaleziono elementu z ID quantity-${id}`);
+        }
+
+        if (priceElement) {
+            priceElement.textContent = (item.price * item.quantity).toFixed(2);
+        } else {
+            console.error(`Nie znaleziono elementu z ID price-${id}`);
+        }
+
+        if (totalPrice) {
+            totalPrice.textContent = getTotalPrice().toFixed(2);
+        } else {
+            console.error(`Nie znaleziono elementu z ID price-${id}`);
+        }
+
+    } else {
+        console.error(`Produkt z ID ${id} nie został znaleziony w koszyku.`);
     }
-    saveCartToCookies(cart);
 }
-
-
 
 function removeFromCart(productId) {
     let cart = getCartFromCookies();
@@ -46,7 +79,13 @@ function removeFromCart(productId) {
     saveCartToCookies(cart);
 }
 
+function handleAddToCart(element) {
+    const productId = element.getAttribute('data-id');
+    const productName = element.getAttribute('data-name');
+    const productPrice = parseFloat(element.getAttribute('data-price'));
 
+    addToCart(productId, productName, productPrice);
+}
 
 function addToCart(productId, productName, productPrice) {
     const cart = getCartFromCookies();
@@ -65,8 +104,6 @@ function addToCart(productId, productName, productPrice) {
 
     saveCartToCookies(cart);
 }
-
-
 
 function getCookie(name) {
     let value = "; " + document.cookie;

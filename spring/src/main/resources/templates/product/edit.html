@@ -19,7 +19,10 @@
                             <label class="label">
                                 <span class="label-text">Category</span>
                             </label>
-                            <input th:field="*{category}" required type="text" class="input input-bordered w-full" />
+                            <select th:field="*{category}" required class="select input-bordered w-full max-w-xs">
+                                <option value="" disabled selected>Choose a category</option>
+                                <option th:each="category : ${categoriesDTO}" th:value="${category.id}" th:text="${category.name}"></option>
+                            </select>
                         </div>
 
                         <div class="form-control">

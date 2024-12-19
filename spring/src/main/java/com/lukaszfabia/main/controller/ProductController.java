@@ -1,5 +1,6 @@
 package com.lukaszfabia.main.controller;
 
+import com.lukaszfabia.main.dto.CategoryDTO;
 import com.lukaszfabia.main.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,8 @@ import org.springframework.ui.Model;
 
 import com.lukaszfabia.main.dto.ProductDTO;
 import com.lukaszfabia.main.service.ProductService;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/admin/products")
@@ -58,7 +61,9 @@ public class ProductController {
     public String showEditForm(@PathVariable Long id, Model model) {
         try {
             ProductDTO productDTO = productService.getProductById(id);
+            List<CategoryDTO> categories = categoryService.getAllCategories();
             model.addAttribute("productDTO", productDTO);
+            model.addAttribute("categoriesDTO", categories);
             model.addAttribute("body", "product/edit");
         } catch (Exception e) {
             model.addAttribute("body", "notFound");
@@ -68,7 +73,6 @@ public class ProductController {
 
     @PostMapping("/edit/{id}")
     public String updateProduct(@PathVariable Long id, @ModelAttribute ProductDTO productDTO, Model model) {
-        // can use id to identify product
         ProductDTO copy = new ProductDTO(id, productDTO.name(), productDTO.weight(), productDTO.price(),
                 productDTO.category());
 
@@ -76,6 +80,7 @@ public class ProductController {
             productService.createOrUpdate(copy);
         } catch (Exception e) {
             model.addAttribute("body", "notFound");
+            System.out.println(e.getMessage());
             return "layout/layout";
         }
         return "redirect:/admin/products";

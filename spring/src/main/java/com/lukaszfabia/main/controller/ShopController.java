@@ -19,7 +19,7 @@ public class ShopController {
 
     @GetMapping("/user/shop")
     public String showProducts(Model model) {
-        model.addAttribute("products", productService.getAllProducts());
+        model.addAttribute("productsDTO", productService.getAllProducts());
         model.addAttribute("body", "shop/shop");
         return "layout/user_layout";
     }

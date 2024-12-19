@@ -23,12 +23,15 @@
                     <td th:text="${product.price}"></td>
                     <td th:text="${product.weight}"></td>
                     <td class="flex items-end justify-end">
-                        <a class="btn btn-circle btn-info mx-1" th:href="@{/products/{id}(id=${product.id})}"><i
-                                class="fa-solid fa-eye"></i></a>
-
-                        <a class="btn btn-circle btn-warning mx-1"
-                           th:href="@{/products/edit/{id}(id=${product.id})}"><i class="fa-solid fa-edit"></i></a>
+                    <td class="flex items-end justify-end">
+                        <a class="btn btn-circle btn-info mx-1"
+                           th:attr="data-id=${product.id}, data-name='${product.name}', data-price=${product.price}"
+                           href="javascript:void(0);"
+                           onclick="handleAddToCart(this)">
+                            <i class="fa-solid fa-plus"></i>
+                        </a>
                     </td>
+
                 </tr>
                 <tr th:unless="${not #lists.isEmpty(productsDTO)}" class="text-center">
                     <td colspan="6">
