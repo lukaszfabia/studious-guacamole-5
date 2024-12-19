@@ -1,0 +1,33 @@
+<body>
+    <div class="bg-gray-100 min-h-screen flex items-center justify-center w-full">
+        <div class="bg-white shadow-lg rounded-xl p-10 items-center justify-center max-w-md">
+            <section>
+
+                <div th:if="${logoutMessage}" style="color: green;">
+                    <p th:text="${logoutMessage}"></p>
+                </div>
+
+                <h1 class="text-2xl font-semibold text-center">Welcome Back! <span class="text-green-500">Login</span></h1>
+                <div class="py-4"></div>
+                <form th:action="@{/login}" th:object="${userDTO}" method="post" class="space-y-4 items-center justify-center">
+                    <div class="form-control items-center justify-center">
+                        <label class="input input-bordered flex flex-col gap-1 max-w-md">
+                            <span class="text-gray-700">Email</span>
+                            <input th:field="*{username}" required type="text" class="input input-bordered" placeholder="example@domain.com" />
+                        </label>
+                    </div>
+                    <div class="form-control items-center justify-center">
+                        <label class="input input-bordered flex flex-col gap-1 max-w-md">
+                            <span class="text-gray-700">Password</span>
+                            <input th:field="*{password}" required type="password" class="input input-bordered" placeholder="********" />
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full">Login</button>
+                </form>
+            </section>
+            <section class="pt-6 text-center">
+                <p class="text-gray-600">Don't have an account? <a href="/register" class="text-green-500 hover:underline">Sign up</a></p>
+            </section>
+        </div>
+    </div>
+</body>

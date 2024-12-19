@@ -14,7 +14,7 @@ import com.lukaszfabia.main.dto.ProductDTO;
 import com.lukaszfabia.main.service.ProductService;
 
 @Controller
-@RequestMapping("/products")
+@RequestMapping("/admin/products")
 public class ProductController {
 
     private final ProductService productService;
@@ -40,7 +40,7 @@ public class ProductController {
     @PostMapping
     public String createProduct(@ModelAttribute ProductDTO productDTO) {
         productService.createOrUpdate(productDTO);
-        return "redirect:/products";
+        return "redirect:/admin/products";
     }
 
     @GetMapping("/{id}")
@@ -78,14 +78,14 @@ public class ProductController {
             model.addAttribute("body", "notFound");
             return "layout/layout";
         }
-        return "redirect:/products";
+        return "redirect:/admin/products";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteProduct(@PathVariable Long id, Model model) {
         try {
             productService.deleteProduct(id);
-            return "redirect:/products";
+            return "redirect:/admin/products";
         } catch (Exception e) {
             model.addAttribute("body", "notFound");
             return "layout/layout";

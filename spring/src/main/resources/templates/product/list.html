@@ -3,7 +3,7 @@
         <section>
             <h1 class="text-2xl font-semibold ">Create New <span class="text-green-500">Product</span></h1>
             <p class="text-gray-400 py-4">Here you can add products to shop.</p>
-            <form th:action="@{/products}" th:object="${productDTO}" method="post"
+            <form th:action="@{/admin/products}" th:object="${productDTO}" method="post"
                 class="bg-gray-200 shadow-lg rounded-xl p-4 flex justify-between form">
                 <div class="flex items-start justify-start gap-y-3 gap-2">
                     <label class="input input-bordered flex items-center gap-2">
@@ -57,13 +57,13 @@
                         <td th:text="${product.price}"></td>
                         <td th:text="${product.weight}"></td>
                         <td class="flex items-end justify-end">
-                            <a class="btn btn-circle btn-info mx-1" th:href="@{/products/{id}(id=${product.id})}"><i
+                            <a class="btn btn-circle btn-info mx-1" th:href="@{/admin/products/{id}(id=${product.id})}"><i
                                     class="fa-solid fa-eye"></i></a>
 
                             <a class="btn btn-circle btn-warning mx-1"
-                                th:href="@{/products/edit/{id}(id=${product.id})}"><i class="fa-solid fa-edit"></i></a>
+                                th:href="@{/admin/products/edit/{id}(id=${product.id})}"><i class="fa-solid fa-edit"></i></a>
                             <a class="btn btn-circle btn-error mx-1"
-                                th:href="@{/products/delete/{id}(id=${product.id})}"><i
+                                th:href="@{/admin/products/delete/{id}(id=${product.id})}"><i
                                     class="fa-solid fa-xmark"></i></a>
                         </td>
                     </tr>

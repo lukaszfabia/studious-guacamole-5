@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/categories")
+@RequestMapping("/admin/categories")
 public class CategoryController {
 
     private final CategoryService categoryService;
@@ -32,7 +32,7 @@ public class CategoryController {
     @PostMapping
     public String createCategory(@ModelAttribute CategoryDTO categoryDTO) {
         categoryService.createOrUpdate(categoryDTO);
-        return "redirect:/categories";
+        return "redirect:/admin/categories";
     }
 
     @GetMapping("/edit/{id}")
@@ -58,14 +58,14 @@ public class CategoryController {
             return "layout/layout";
         }
 
-        return "redirect:/categories";
+        return "redirect:/admin/categories";
     }
 
     @GetMapping("delete/{id}")
     public String deleteCategory(@PathVariable Long id, Model model) {
         try {
             categoryService.deleteCategory(id);
-            return "redirect:/categories";
+            return "redirect:/admin/categories";
         } catch (Exception e) {
             model.addAttribute("body", "notFound");
             return "layout/layout";

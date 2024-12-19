@@ -6,7 +6,7 @@
                 <h1 class="card-title text-center font-extrabold text-2xl">Edit <span
                         class="text-green-500">Category</span>
                 </h1>
-                <form th:action="@{/categories/edit/{id}(id=${categoryDTO.id})}" th:object="${categoryDTO}"
+                <form th:action="@{/admin/categories/edit/{id}(id=${categoryDTO.id})}" th:object="${categoryDTO}"
                       method="post" class="space-y-4">
                     <div class="form-control">
                         <label class="label">
@@ -41,7 +41,7 @@
     </div>
 
     <div class="flex justify-end items-end mt-4">
-        <a href="/products" class="btn btn-primary btn-circle">
+        <a href="/admin/products" class="btn btn-primary btn-circle">
             <i class="fa-solid fa-arrow-left"></i>
         </a>
     </div>
