@@ -1,14 +1,14 @@
 <body>
-    <div class="bg-gray-100 p-10">
-        <h1 class="text-2xl font-semibold pt-5">Koszyk</h1>
+    <div class="bg-gray-100 p-10 flex flex-col justify-center items-center rounded-lg">
+        <h1 class="text-2xl font-semibold pt-5 text-left w-full">Your <span class="text-green-500">Cart</span></h1>
 
         <table class="table">
             <thead>
             <tr>
-                <th>Nazwa</th>
-                <th>Cena</th>
-                <th>Ilość</th>
-                <th>Łączna cena</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subprice</th>
                 <th></th>
             </tr>
             </thead>
@@ -16,10 +16,15 @@
             </tbody>
         </table>
 
-        <p>Całkowita cena: <span id="totalPrice">0.00</span> PLN</p>
+        <div class="p-10"></div>
 
-        <!-- Przycisk do powrotu do sklepu -->
-        <button onclick="window.location.href='/'">Powrót do sklepu</button>
+        <p class="text-right font-bold text-xl text-gray-800 p-4 bg-gray-100 rounded-lg shadow-md w-full">
+            Full price: <span id="totalPrice">0.00</span> PLN
+        </p>
+
+        <div class="p-10"></div>
+
+        <button type="button" class="btn btn-primary max-w-md w-full">Buy</button>
         <script>
             renderCart();
         </script>

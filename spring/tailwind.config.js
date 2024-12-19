@@ -6,7 +6,15 @@ module.exports = {
   ],
   theme: {
     extend: {
-
+      keyframes: {
+        fadeOut: {
+          '0%, 80%': { opacity: '1', transform: 'translateY(0)' },
+          '100%': { opacity: '0', transform: 'translateY(20px)' },
+        },
+      },
+      animation: {
+        'fade-out': 'fadeOut 3s ease-in-out forwards',
+      },
     },
     fontFamily: {
       'poppins': ['Poppins', 'sans-serif'],

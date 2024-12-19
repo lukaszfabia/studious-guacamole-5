@@ -2,19 +2,28 @@
 function renderCart() {
     const cart = getCartFromCookies();
     let cartHtml = "";
+    if (cart.length === 0) {
+        cartHtml = `
+            <tr class="text-center">
+                <td colspan="6">
+                    <h1 class="text-3xl font-extrabold py-4">There are no items in your cart!</h1>
+                </td>
+            </tr>`
+    }
     cart.forEach(item => {
         cartHtml += `
             <tr class="hover">
                 <td>${item.name}</td>
                 <td>${item.price}</td>
                 <td>
-                    <button onclick="updateQuantity(${item.id}, -1)" class="btn btn-decrement">-</button>
+                    <button onclick="updateQuantity(${item.id}, -1)" class="btn btn-decrement mx-1">-</button>
                     <span id="quantity-${item.id}">${item.quantity}</span>
-                    <button onclick="updateQuantity(${item.id}, 1)" class="btn btn-increment">+</button>
+                    <button onclick="updateQuantity(${item.id}, 1)" class="btn btn-increment mx-1">+</button>
                 </td>
                 <td id="price-${item.id}">${(item.price * item.quantity).toFixed(2)}</td>
                 <td class="flex items-end justify-end">
-                    <button onclick="removeFromCart(${item.id})">Usuń</button>
+                    <a class="btn btn-circle btn-error mx-1" onclick="removeFromCart(${item.id})">
+                    <i class="fa-solid fa-xmark"></i></a>
                 </td>
             </tr>
         `;
@@ -74,9 +83,17 @@ function updateQuantity(productId, change) {
 }
 
 function removeFromCart(productId) {
+    const id = parseInt(productId);
     let cart = getCartFromCookies();
-    cart = cart.filter(item => item.id !== productId);
+    if (!cart) {
+        console.error('Koszyk jest pusty lub nie istnieje.');
+        return;
+    }
+    console.log(id);
+    cart = cart.filter(item => parseInt(item.id) !== id);
+    console.log(cart);
     saveCartToCookies(cart);
+    renderCart();
 }
 
 function handleAddToCart(element) {
@@ -89,10 +106,12 @@ function handleAddToCart(element) {
 
 function addToCart(productId, productName, productPrice) {
     const cart = getCartFromCookies();
+    let item_quantity;
 
     const existingItem = cart.find(item => item.id === productId);
     if (existingItem) {
         existingItem.quantity++;
+        item_quantity = existingItem.quantity;
     } else {
         cart.push({
             id: productId,
@@ -100,9 +119,25 @@ function addToCart(productId, productName, productPrice) {
             price: productPrice,
             quantity: 1
         });
+        item_quantity = 1;
     }
 
     saveCartToCookies(cart);
+    showNotification(`${productName} został dodany do koszyka!\nW koszyku znajduje się: ${item_quantity} sztuk tego produktu.`);
+}
+
+function showNotification(message) {
+    const container = document.getElementById('notification-container');
+
+    const notification = document.createElement('div');
+    notification.className = 'bg-green-500 text-white px-4 py-2 rounded shadow-lg animate-fade-out';
+    notification.textContent = message;
+
+    container.appendChild(notification);
+
+    setTimeout(() => {
+        notification.remove();
+    }, 2000);
 }
 
 function getCookie(name) {
@@ -133,4 +168,9 @@ function getCartFromCookies() {
 
 function saveCartToCookies(cart) {
     setCookie("cart", JSON.stringify(cart), 7);
+}
+
+function logout() {
+    deleteCookie("cart");
+    deleteCookie("session");
 }
