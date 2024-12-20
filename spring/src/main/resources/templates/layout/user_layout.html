@@ -8,7 +8,7 @@
     <script src="/js/cookies.js"></script>
 </head>
 
-<body class="flex flex-col">
+<body class="min-h-screen flex flex-col">
 <header class="p-5 bg-slate-800 text-gray-200 flex justify-between">
     <h1 class="text-2xl font-semibold">PWr <span class="text-green-500 font-extrabold">Shop</span>
     </h1>
@@ -22,14 +22,31 @@
     </nav>
 </header>
 
-<main>
+<main class="flex-grow p-5">
     <div th:replace="~{${body}}"></div>
 </main>
 
-<footer class="footer footer-center bg-gray-800 text-lg p-5 text-gray-200">
-    <div class="flex items-center justify-center">
+<footer
+        class="footer footer-center bg-slate-800 text-lg p-5 text-gray-200 font-lato"
+>
+    <div class="flex items-center justify-center space-x-1">
         <p>&copy; 2024 Webowka 2024/25</p>
-        <a href="https://lukasz.vercel.app" target="_blank">lukaszfabia.dev</a>
+        <a
+                href="https://lukasz.vercel.app"
+                target="_blank"
+                class="transition-all ease-in-out duration-200 hover:text-blue-500"
+        >
+            <p>Łukasz Fabia</p>
+        </a>
+
+        <p>&</p>
+
+        <a
+                href="https://github.com/pyRR4"
+                target="_blank"
+                class="transition-all ease-in-out duration-200 hover:text-blue-500"
+        >Igor Podgórniak</a
+        >
     </div>
 </footer>
 </body>
