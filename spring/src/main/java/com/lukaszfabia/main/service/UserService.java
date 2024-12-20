@@ -32,8 +32,8 @@ public class UserService {
     public void createUser(UserDTO userDTO) {
         User user = new User(userDTO);
 
-        Role role = roleRepository.findByName("client")
-                .orElseThrow(() -> new RoleNotFound("client"));
+        Role role = roleRepository.findByName("user")
+                .orElseThrow(() -> new RoleNotFound("user"));
         user.setRole(role);
 
         userRepository.save(user);

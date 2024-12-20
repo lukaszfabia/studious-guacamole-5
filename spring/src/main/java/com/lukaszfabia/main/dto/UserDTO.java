@@ -4,12 +4,12 @@ import com.lukaszfabia.main.model.Role;
 import com.lukaszfabia.main.model.User;
 
 public record UserDTO(
-        int id,
+        Integer id,
         String username,
         String password,
         Role role
 ) {
-    public UserDTO(int id, String username, String password, Role role) {
+    public UserDTO(Integer id, String username, String password, Role role) {
         this.id = id;
         this.username = username;
         this.password = password;

@@ -50,6 +50,7 @@ public class SecurityConfig {
                                 response.sendRedirect("/user/shop");
                             }
                         })
+                        .failureUrl("/login?error=true")
                         .permitAll()
                 )
                 .logout(logout -> logout
