@@ -17,7 +17,7 @@ public class App {
 	@GetMapping
 	public String hello(Model model) {
 		model.addAttribute("body", "index");
-		return "layout/layout";
+		return "layout/start_layout";
 	}
 
 }

@@ -2,12 +2,9 @@ package com.lukaszfabia.main.model;
 
 import com.lukaszfabia.main.dto.ProductDTO;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.math.BigDecimal;
 
@@ -20,12 +17,13 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
-    // TODO: change it on category table
-    @Column(name = "category")
-    private String category;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "category", nullable = false, referencedColumnName = "id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Category category;
 
     @Column(name = "weight")
     private BigDecimal weight;
@@ -54,7 +52,7 @@ public class Product {
         return this.name;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return this.category;
     }
 
@@ -76,8 +74,8 @@ public class Product {
         }
     }
 
-    public void setCategory(String category) throws Exception {
-        if (category.isEmpty()) {
+    public void setCategory(Category category) throws Exception {
+        if (category == null) {
             throw new Exception("Category is empty!");
         } else {
             this.category = category;

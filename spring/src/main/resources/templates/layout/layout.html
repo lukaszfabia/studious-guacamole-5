@@ -11,26 +11,16 @@
 
   <body class="min-h-screen flex flex-col">
     <header class="p-5 bg-slate-800 text-gray-200 flex justify-between">
-      <h1 class="text-2xl font-semibold">
-        <a href="/" th:href="@{/}">
-          PWr <span class="text-green-500 font-extrabold">Shop</span>
-        </a>
-      </h1>
-      <nav class="flex items-center">
-        <ul class="flex justify-end items-end gap-5">
-          <li>
-            <a href="/" th:href="@{/}" class="hover:text-green-500">Home</a>
-          </li>
-          <li>
-            <a
-              href="/products"
-              th:href="@{/products}"
-              class="hover:text-green-500"
-              >Products</a
-            >
-          </li>
-        </ul>
-      </nav>
+        <h1 class="text-2xl font-semibold">PWr <span class="text-green-500 font-extrabold">Shop</span>
+        </h1>
+
+        <nav class="flex items-center">
+            <ul class="flex justify-end items-end gap-5">
+                <li><a href="/admin/products" th:href="@{/admin/products}">Products</a></li>
+                <li><a href="/admin/categories" th:href="@{/admin/categories}">Categories</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main class="flex-grow p-5">

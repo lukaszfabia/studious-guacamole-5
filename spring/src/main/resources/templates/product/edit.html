@@ -6,7 +6,7 @@
                     <h1 class="card-title text-center font-extrabold text-2xl">Edit <span
                             class="text-green-500">Product</span>
                     </h1>
-                    <form th:action="@{/products/edit/{id}(id=${productDTO.id})}" th:object="${productDTO}"
+                    <form th:action="@{/admin/products/edit/{id}(id=${productDTO.id})}" th:object="${productDTO}"
                         method="post" class="space-y-4">
                         <div class="form-control">
                             <label class="label">
@@ -19,7 +19,10 @@
                             <label class="label">
                                 <span class="label-text">Category</span>
                             </label>
-                            <input th:field="*{category}" required type="text" class="input input-bordered w-full" />
+                            <select th:field="*{category}" required class="select input-bordered w-full max-w-xs">
+                                <option value="" disabled selected>Choose a category</option>
+                                <option th:each="category : ${categoriesDTO}" th:value="${category.id}" th:text="${category.name}"></option>
+                            </select>
                         </div>
 
                         <div class="form-control">
@@ -57,7 +60,7 @@
         </div>
 
         <div class="flex justify-end items-end mt-4">
-            <a href="/products" class="btn btn-primary btn-circle">
+            <a href="/admin/products" class="btn btn-primary btn-circle">
                 <i class="fa-solid fa-arrow-left"></i>
             </a>
         </div>

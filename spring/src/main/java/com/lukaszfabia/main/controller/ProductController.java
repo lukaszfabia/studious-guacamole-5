@@ -1,5 +1,7 @@
 package com.lukaszfabia.main.controller;
 
+import com.lukaszfabia.main.dto.CategoryDTO;
+import com.lukaszfabia.main.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,20 +14,25 @@ import org.springframework.ui.Model;
 import com.lukaszfabia.main.dto.ProductDTO;
 import com.lukaszfabia.main.service.ProductService;
 
+import java.util.List;
+
 @Controller
-@RequestMapping("/products")
+@RequestMapping("/admin/products")
 public class ProductController {
 
-    @Autowired
     private final ProductService productService;
+    private final CategoryService categoryService;
 
-    public ProductController(ProductService productService) {
+    @Autowired
+    public ProductController(ProductService productService, CategoryService categoryService) {
         this.productService = productService;
+        this.categoryService = categoryService;
     }
 
     @GetMapping
     public String getAllProducts(Model model) {
         model.addAttribute("productsDTO", productService.getAllProducts());
+        model.addAttribute("categoriesDTO", categoryService.getAllCategories());
         model.addAttribute("productDTO", new ProductDTO());
 
         // jesli tak trzeba robic to XD
@@ -36,7 +43,7 @@ public class ProductController {
     @PostMapping
     public String createProduct(@ModelAttribute ProductDTO productDTO) {
         productService.createOrUpdate(productDTO);
-        return "redirect:/products";
+        return "redirect:/admin/products";
     }
 
     @GetMapping("/{id}")
@@ -54,7 +61,9 @@ public class ProductController {
     public String showEditForm(@PathVariable Long id, Model model) {
         try {
             ProductDTO productDTO = productService.getProductById(id);
+            List<CategoryDTO> categories = categoryService.getAllCategories();
             model.addAttribute("productDTO", productDTO);
+            model.addAttribute("categoriesDTO", categories);
             model.addAttribute("body", "product/edit");
         } catch (Exception e) {
             model.addAttribute("body", "notFound");
@@ -64,7 +73,6 @@ public class ProductController {
 
     @PostMapping("/edit/{id}")
     public String updateProduct(@PathVariable Long id, @ModelAttribute ProductDTO productDTO, Model model) {
-        // can use id to identify product
         ProductDTO copy = new ProductDTO(id, productDTO.name(), productDTO.weight(), productDTO.price(),
                 productDTO.category());
 
@@ -72,16 +80,17 @@ public class ProductController {
             productService.createOrUpdate(copy);
         } catch (Exception e) {
             model.addAttribute("body", "notFound");
+            System.out.println(e.getMessage());
             return "layout/layout";
         }
-        return "redirect:/products";
+        return "redirect:/admin/products";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteProduct(@PathVariable Long id, Model model) {
         try {
             productService.deleteProduct(id);
-            return "redirect:/products";
+            return "redirect:/admin/products";
         } catch (Exception e) {
             model.addAttribute("body", "notFound");
             return "layout/layout";
