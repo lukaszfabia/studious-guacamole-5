@@ -31,14 +31,12 @@ async function GET(
         const { db } = await connectToDatabase();
 
         const notes = await db.collection("notes").find({}).toArray() as unknown as Note[];
-        return res.status(200).json({
+        res.status(200).json({
             model: notes,
-            message: "Success!"
-        })
+            status: "success",
+        });
     } catch (error) {
-        return res.status(500).json({
-            message: "Interal erorr",
-        })
+        res.status(500);
     }
 }
 
@@ -48,7 +46,7 @@ async function POST(
     res: NextApiResponse<Response<Note>>,
 ) {
     try {
-        const newNote: Note = req.body
+        const newNote: Note = req.body;
         const { db } = await connectToDatabase();
 
         const result = await db.collection("notes").insertOne(newNote);
@@ -56,19 +54,18 @@ async function POST(
         if (result.insertedId) {
             const insertedNote = await db.collection("notes").findOne({ _id: result.insertedId }) as unknown as Note;
 
-            return res.status(200).json({
+            res.status(200).json({
                 model: insertedNote,
                 message: "Note successfully created!",
+                status: "success",
             });
         } else {
-            return res.status(500).json({
-                message: "Error inserting note",
+            res.status(500).json({
+                status: "failed",
             });
         }
     } catch (error) {
         console.error(error);
-        res.status(400).json({
-            message: "Internal error",
-        });
+        res.status(500);
     }
 }

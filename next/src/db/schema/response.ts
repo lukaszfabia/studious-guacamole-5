@@ -1,9 +1,10 @@
 import { Note } from "./note"
 
-type Model = Note | Note[]
+type Model = Note | Note[] | string
 
 
 export type Response<T extends Model> = {
     model?: T | null
-    message: string
+    message?: string | null
+    status: "success" | "failed"
 }

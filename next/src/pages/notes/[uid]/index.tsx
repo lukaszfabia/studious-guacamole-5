@@ -1,3 +1,4 @@
+import NoteCard from "@/components/NoteCard";
 import LoadingIndicator from "@/components/ui/LoadingIndicator";
 import { Note as note } from "@/db/schema/note";
 import { Response } from "@/db/schema/response";
@@ -7,6 +8,7 @@ import useSWR from "swr";
 
 export default function Note() {
     const router = useRouter();
+
     const { data, error } = useSWR<Response<note>>(`/api/note/${router.query.uid}`, fetcher)
 
     if (error) return <div className="text-center">error</div>
@@ -14,10 +16,8 @@ export default function Note() {
 
     return (
         data.model ? (
-            <div>
-                <h1>{data.model.title}</h1>
-                <p>{data.model.section}</p>
-                <h1>{data.model.lvl}</h1>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <NoteCard note={data.model} saveOption />
             </div>
         ) : (
             <div>{data.message}</div>

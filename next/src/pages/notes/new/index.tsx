@@ -86,7 +86,7 @@ export default function NewNote() {
                     placeholderValue={new CalendarDate(1995, 11, 6)}
                 />
 
-                <Select isRequired className="max-w-xs" label="Select priority" name="priority">
+                <Select isRequired className="max-w-xs" label="Select priority" name="lvl">
                     {levels.map((level: Level) => (
                         <SelectItem key={level} value={level}>
                             {level}

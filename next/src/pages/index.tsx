@@ -18,7 +18,7 @@ export default function Home() {
           Stay updated with <span className="bg-gradient-to-r from-pink-500 to-purple-500 text-transparent bg-clip-text">crud</span> and <span className="bg-gradient-to-r from-pink-500 to-purple-500 text-transparent bg-clip-text">notes</span>!
         </h1>
         <p className="text-lg text-gray-300 mb-6">
-          Zadanie 2 z reacta
+          Zadanie 2 z <span className="animate-pulse">reacta</span>
         </p>
       </div>
 
