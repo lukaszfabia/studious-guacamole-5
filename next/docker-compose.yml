@@ -21,6 +21,8 @@ services:
   app:
     build: .
     restart: always
+    ports:
+      - ${APP_PORT}:${APP_PORT}
     environment:
       - MONGODB_URI=mongodb://${ME_ADMIN_USERNAME}:${ME_ADMIN_PASSWORD}@mongo:27017/
     depends_on:

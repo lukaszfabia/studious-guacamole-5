@@ -52,54 +52,58 @@ export default function NewNote() {
     };
 
     return (
-        <div className="flex justify-center items-center">
-            <Form
-                className="w-full max-w-xs flex flex-col gap-4"
-                validationBehavior="native"
-                onSubmit={submit}
-            >
-                <Input
-                    isRequired
-                    errorMessage="Please provide a title for your note"
-                    label="Title"
-                    labelPlacement="outside"
-                    name="title"
-                    placeholder="e.g. Buy new kicks"
-                    type="text"
-                />
+        <div>
+            <h1 className="text-3xl font-extrabold text-center">Let's <span className="text-violet-500">create</span> something!</h1>
+            <p className="text-gray-400 text-center pb-10 pt-5">After you will have created new note, you'll be redirected to your new note.</p>
+            <div className="flex justify-center items-center">
+                <Form
+                    className="w-full max-w-xs flex flex-col gap-4"
+                    validationBehavior="native"
+                    onSubmit={submit}
+                >
+                    <Input
+                        isRequired
+                        errorMessage="Please provide a title for your note"
+                        label="Title"
+                        labelPlacement="outside"
+                        name="title"
+                        placeholder="e.g. Buy new kicks"
+                        type="text"
+                    />
 
-                <Textarea
-                    isRequired
-                    errorMessage="Please provide a section"
-                    label="Section"
-                    labelPlacement="outside"
-                    name="section"
-                    placeholder="e.g. Nike or Flip flops"
-                    type="text"
-                />
+                    <Textarea
+                        isRequired
+                        errorMessage="Please provide a section"
+                        label="Section"
+                        labelPlacement="outside"
+                        name="section"
+                        placeholder="e.g. Nike or Flip flops"
+                        type="text"
+                    />
 
-                <DateInput
-                    isRequired
-                    className="max-w-sm"
-                    label="Deadline"
-                    name="deadline"
-                    placeholderValue={new CalendarDate(1995, 11, 6)}
-                />
+                    <DateInput
+                        isRequired
+                        className="max-w-sm"
+                        label="Deadline"
+                        name="deadline"
+                        placeholderValue={new CalendarDate(1995, 11, 6)}
+                    />
 
-                <Select isRequired className="max-w-xs" label="Select priority" name="lvl">
-                    {levels.map((level: Level) => (
-                        <SelectItem key={level} value={level}>
-                            {level}
-                        </SelectItem>
-                    ))}
-                </Select>
+                    <Select isRequired className="max-w-xs" label="Select priority" name="lvl">
+                        {levels.map((level: Level) => (
+                            <SelectItem key={level} value={level}>
+                                {level}
+                            </SelectItem>
+                        ))}
+                    </Select>
 
-                <div className="flex gap-2">
-                    <Button color="primary" type="submit" isDisabled={isCreating}>
-                        {isCreating ? <Spinner size="sm" /> : "Submit"}
-                    </Button>
-                </div>
-            </Form>
+                    <div className="flex gap-2">
+                        <Button color="primary" type="submit" isDisabled={isCreating}>
+                            {isCreating ? <Spinner size="sm" /> : "Submit"}
+                        </Button>
+                    </div>
+                </Form>
+            </div>
         </div>
     );
 }

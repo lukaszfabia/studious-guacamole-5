@@ -1,7 +1,7 @@
 import { Level, Note } from "@/db/schema/note";
 import { Response } from "@/db/schema/response";
 import { fetcher } from "@/lib/fetcher";
-import { Button, Card, CardBody, CardFooter, CardHeader, Divider, Link, Spinner } from "@nextui-org/react";
+import { Button, Card, CardBody, CardFooter, CardHeader, Divider, Link, Spinner, Tooltip } from "@nextui-org/react";
 import { ObjectId } from "mongodb";
 import { useState } from "react";
 import useSWR from "swr";
@@ -24,6 +24,7 @@ export default function NoteCard({ note, saveOption }: { note: Note, saveOption?
     const [isSaved, setIsSaved] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [savedPath, setSavedPath] = useState<string | null>(null);
 
     async function save() {
         setLoading(true);
@@ -34,6 +35,7 @@ export default function NoteCard({ note, saveOption }: { note: Note, saveOption?
             if (response && response.status == "success") {
                 setIsSaved(true);
                 setError(null);
+                setSavedPath(response.model!);
             } else {
                 console.log(error);
                 setError('Something went wrong!');
@@ -56,11 +58,17 @@ export default function NoteCard({ note, saveOption }: { note: Note, saveOption?
 
                 <div>
                     {saveOption && note._id && (
-                        <Button variant={`${isSaved ? "solid" : "ghost"}`} color={`${error != null ? "danger" : "success"}`} size="sm" onPress={save}>
-                            {loading && <Spinner />}
-                            {!loading && <>To json</>}
+                        <Tooltip content={`${savedPath ? savedPath : "Click me to dump a note!"}`}>
+                            <Button
+                                variant={`${isSaved ? "solid" : "ghost"}`}
+                                color={`${error != null ? "danger" : "success"}`}
+                                size="sm"
+                                onPress={save}>
+                                {loading && <Spinner />}
+                                {!loading && <>To json</>}
 
-                        </Button>
+                            </Button>
+                        </Tooltip>
                     )}
                 </div>
             </CardHeader>
