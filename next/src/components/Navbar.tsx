@@ -19,7 +19,7 @@ export const MyNavbar = () => {
                     </Link>
                 </NavbarItem>
                 <NavbarItem>
-                    <Link aria-current="page" href="/notes">
+                    <Link aria-current="page" color="foreground" href="/notes">
                         Your notes
                     </Link>
                 </NavbarItem>
