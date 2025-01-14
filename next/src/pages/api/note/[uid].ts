@@ -35,8 +35,10 @@ async function DELETE(
 
         return r.deletedCount === 1 ? res.status(200).json({
             message: "Deleted",
+            status: "success",
         }) : res.status(404).json({
             message: "Failed to find note",
+            status: "failed",
         })
     } catch (error) {
         res.status(500)
@@ -57,15 +59,18 @@ async function GET(req: NextApiRequest, res: NextApiResponse<Response<Note>>) {
                 res.status(200).json({
                     model: note,
                     message: "Note found!",
+                    status: "success",
                 });
             } else {
                 res.status(404).json({
                     message: "Note not found",
+                    status: "failed",
                 });
             }
         } else {
             res.status(400).json({
                 message: "Invalid 'uid' parameter",
+                status: "failed",
             });
         }
     } catch (error) {

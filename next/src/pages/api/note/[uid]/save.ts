@@ -4,6 +4,8 @@ import { Response } from "@/db/schema/response";
 import { connectToDatabase } from "@/db/connect";
 import { ObjectId } from "mongodb";
 import fs from 'fs';
+import path from "path";
+import writer from "@/lib/writer";
 
 export default async function handler(
     req: NextApiRequest,
@@ -23,21 +25,14 @@ export default async function handler(
 
         const r = await db.collection("notes").findOne({ _id: new ObjectId(uid) }) as unknown as Note;
 
-        const filePath = `/app/jsons/${r.title}-${r.lvl}.json`;
+        const filename = `${r.title}-${r.deadline.toString()}`;
 
-        fs.writeFile(filePath, JSON.stringify(r), (err) => {
-            if (err) {
-                return res.status(500).json({
-                    message: "Something went wrong!",
-                    status: "failed",
-                });
-            }
-            res.status(200).json({
-                message: "Done!",
-                status: "success",
-            });
-        });
+        const resultPath = await writer(r, filename)
 
+        res.status(200).json({
+            status: "success",
+            model: resultPath,
+        })
 
     } catch (error) {
         res.status(500);
