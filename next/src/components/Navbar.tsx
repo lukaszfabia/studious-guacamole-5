@@ -14,13 +14,13 @@ export const MyNavbar = () => {
                     </Link>
                 </NavbarItem>
                 <NavbarItem>
-                    <Link color="foreground" href="/notes/new">
-                        Create new note
+                    <Link color="foreground" href="/plan">
+                        Plan
                     </Link>
                 </NavbarItem>
                 <NavbarItem>
-                    <Link aria-current="page" color="foreground" href="/notes">
-                        Your notes
+                    <Link aria-current="page" color="foreground" href="/subjects">
+                        Subjects
                     </Link>
                 </NavbarItem>
             </NavbarContent>

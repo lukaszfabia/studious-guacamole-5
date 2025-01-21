@@ -1,6 +1,8 @@
-import { Note } from "./note"
+import { PlanItem } from "./plan"
 
-type Model = Note | Note[] | string
+import { Subject } from "./subject"
+
+export type Model = PlanItem | Subject | PlanItem[] | Subject[]
 
 
 export type Response<T extends Model> = {
